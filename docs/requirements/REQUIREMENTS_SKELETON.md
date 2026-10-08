@@ -58,7 +58,7 @@ All compiler engines must be implemented enforcing memory safety and zero-copy m
 ## 2. Schema Ingestion & Grammar Parsers
 
 ### REQ-011: Deterministic Tabular Schema Parsing
-The ingestion engine must parse tabular schemas in deterministic linear time $O(N)$ with zero catastrophic backtracking (Inoculation against Defect #407).
+The ingestion engine must parse tabular schemas in deterministic linear time $O(N)$ with zero catastrophic backtracking, implementing synchronization token error recovery to accumulate multiple syntax and structural diagnostics without halting on first fault (Inoculation against Defect #407).
 
 ### REQ-012: Dynamic Semantic Header Key Binding
 Table column extraction must bind by normalized semantic header keys (case-insensitive, whitespace-trimmed, punctuation-stripped), never by ordinal column index. Tables with reordered columns must produce identical AST structures (Inoculation against Defect #395).
@@ -116,7 +116,7 @@ All AST nodes must be allocated in a generational memory arena, eliminating indi
 Nodes must be referenced via Copy-able generational index handles (`NodeId`, `PackageId`, `ClassifierId`, `PortId`, `AttrId`), preventing raw pointer invalidation and dangling references.
 
 ### REQ-028: High-Throughput String Interning
-All identifiers, symbol names, and namespace paths must be interned upon first encounter, enabling $O(1)$ symbol comparisons and cache-coherent identifier tables.
+All identifiers, symbol names, and namespace paths must be interned upon first encounter, enabling $O(1)$ symbol comparisons and cache-coherent identifier tables. Copying string bytes from the input buffer into the global interner pool during the initial lexical pass is expected and the sole permitted exception to the zero-copy invariant.
 
 ### REQ-029: Explicit ClassifierDef vs FeatureUsage Typing
 The IR must strictly differentiate between definitions and instance usages via distinct types (`ClassifierDef::PartDef` vs `FeatureUsage::PartUsage`), inoculating against Defect #422.
@@ -291,7 +291,7 @@ For every control action in the HCS, must synthesize UCAs across the 4 universal
 Every synthesized UCA must generate a formal boolean mitigation invariant serialized as an assert constraint block.
 
 ### REQ-075: Parallelized Evaluation of Combinatorial Hazard Expansions
-STPA Cartesian expansion must execute across multiple threads, evaluating $\ge 10^4$ combinations in $< 100\text{ ms}$ (Inoculation against Defect #388, #389).
+STPA Cartesian expansion must execute across a bounded, work-stealing thread pool (e.g., `rayon`), evaluating $\ge 10^4$ combinations in $< 100\text{ ms}$. Unbounded manual thread spawning is strictly banned (Inoculation against Defect #388, #389).
 
 ### REQ-076: Abstract Safety Hazard Verification Gate
 The compiler shall verify that 100% of declared safety hazard nodes in the AST trace to at least one formal mitigation constraint (`assert constraint`) and a verified witness test.
@@ -370,7 +370,7 @@ Must project abstract logical connector topologies into concrete pin-out and har
 ## 8. Downstream Specification Projection & Output Contracts
 
 ### REQ-091: Epics Projection
-Top-level `Package` declarations must project into Epic specifications with UUIDv7 anchors, executive summary, boundaries, and child Feature inventories.
+Top-level `Package` declarations must project into Epic specifications with Deterministic UUIDv5 anchors (seeded by the node's fully qualified topological path), executive summary, boundaries, and child Feature inventories.
 
 ### REQ-092: Bottom-Up Feature-First Dependency Lifecycle
 Specification generation must follow a strict bottom-up lifecycle: Features must be resolved and anchored before parent Epics are synthesized (Inoculation against Defect #359).
@@ -391,7 +391,7 @@ Must specify state machines, transition triggers, temporal intervals, operationa
 Must specify concrete bindings to operator presentation widgets (gauges, alarms) or physical actuator drive signals. Writing `N/A` is strictly prohibited.
 
 ### REQ-098: User Stories Projection
-Must generate Agile User Stories conforming to `As a [Role], I need [Capability], So that [Goal]`, anchored to parent Features and UUIDv7.
+Must generate Agile User Stories conforming to `As a [Role], I need [Capability], So that [Goal]`, anchored to parent Features and Deterministic UUIDv5.
 
 ### REQ-099: Deterministic Given-When-Then BDD Synthesis from Constraints
 Constraints and attribute envelopes must compile deterministically into Given-When-Then BDD scenarios:
@@ -414,8 +414,8 @@ Must bind standard KerML libraries (`ISQ::*`, `SI::*`) for physical dimensions a
 ### REQ-104: Non-Destructive Incremental Markdown Reconciliation
 Re-generating Markdown specifications must use an incremental memory-mapped diff engine that preserves human prose outside generated fences (Inoculation against Defect #412).
 
-### REQ-105: Mandatory UUIDv7 Frontmatter Identity Anchors
-All generated Markdown specifications must embed immutable UUIDv7 identity anchors in YAML frontmatter, preventing feature annihilation during entity renames (Inoculation against Defect #312).
+### REQ-105: Mandatory UUIDv5 Frontmatter Identity Anchors
+All generated Markdown specifications must embed immutable Deterministic UUIDv5 identity anchors in YAML frontmatter (seeded by the node's fully qualified topological path), preventing feature annihilation during entity renames and preserving bitwise determinism (Inoculation against Defect #312).
 
 ---
 
@@ -451,10 +451,10 @@ All emitted documentation, code comments, and CLI outputs must contain zero Unic
 All display equations must use isolated `$$` fences on dedicated lines; multi-line equations must use `\begin{aligned} ... \end{aligned}`.
 
 ### REQ-114: Processing Latency Gate
-Ingestion and compilation latency must not exceed 25 ms per 1,000 AST nodes on standard workstation hardware.
+Ingestion and compilation latency must not exceed 25 ms per 1,000 AST nodes on standard workstation hardware. This gate must be evaluated exclusively in compiled Release mode (`--release`) via dedicated benchmarking harnesses (e.g., `criterion`), isolated from CI logic tests.
 
 ### REQ-115: Bounded Memory Consumption Gate
-Peak memory consumption (RSS) must remain under 100 MB for models with up to 10,000 AST nodes (Inoculation against Defect #390).
+Peak memory consumption (RSS) must remain under 100 MB for models with up to 10,000 AST nodes, evaluated exclusively in compiled Release mode (`--release`) via dedicated benchmarking harnesses, isolated from CI logic tests (Inoculation against Defect #390).
 
 ### REQ-116: Strict Synthetic-Only Test Fixtures (Ground Zero Purity)
 Internal compiler test suites must NEVER import or reference customer domain assets. All tests must execute against synthetic mathematical schemas (`Package_Alpha`, `Classifier_1`, `Port_A`, `param_x = 42.0 [M]`).
@@ -465,8 +465,8 @@ Parser and metrology engines must be validated via property-based fuzz testing, 
 ### REQ-118: 4-Pass Semantic Parity Gate
 Must support running shadow parity assertions against the decommissioned legacy oracle to prove 100% semantic equivalence without runtime crashes.
 
-### REQ-119: Headless CLI Non-Zero Exit Code Contract
-The compiler must operate cleanly in headless CI/CD environments, returning exit code 0 on success and non-zero on any gate violation.
+### REQ-119: Headless CLI Non-Zero Exit Code & Panic-Free Contract
+The compiler must operate cleanly in headless CI/CD environments, returning exit code 0 on success and non-zero on any gate violation. All production compiler library code must be 100% panic-free (`.unwrap()` and `.expect()` strictly banned).
 
 ### REQ-120: Automated Defect Inoculation Regression Suite
 The test suite must include dedicated regression tests specifically verifying inoculation against all 32 fatal defects of DEAP01.
