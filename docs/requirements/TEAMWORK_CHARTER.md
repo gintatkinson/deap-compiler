@@ -4,24 +4,26 @@
 
 - **System Identity:** Sovereign DEAP Compiler (`deap-compiler`).
 - **Workspace Context:** Clean-room repository workspace (`deap-compiler-spec` seed source).
-- **Seed Input:** `docs/requirements/REQUIREMENTS_SKELETON.md` and modular skeleton item catalog in `docs/requirements/items/` (199 modular skeleton items covering Subsystems 1 through 12, `REQ-0001` through `REQ-0199`).
-- **Core Mission:** Deploy an autonomous multi-agent swarm via `/teamwork-preview` to ingest the 199 modular skeleton items (`REQ-0001` through `REQ-0199`), expand each into an exhaustive, contract-grade IEEE 29148 specification block using the mandatory 4-part Detailing Template, apply the 5 Non-Negotiable Architectural Directives, audit each draft for zero domain contamination and mathematical rigor, and publish all 199 requirements as formal tracked issues on GitHub via the `gh` CLI.
+- **Seed Input:** Strictly `docs/requirements/items/REQ-0001.md` through `REQ-0199.md` (199 modular requirement items covering Subsystems 1 through 12).
+- **Core Mission:** Deploy an autonomous multi-agent swarm via `/teamwork-preview` to ingest the 199 modular requirement items (`REQ-0001` through `REQ-0199`), expand each into an exhaustive, contract-grade IEEE 29148 specification block using the mandatory 4-part Contract Schema, apply the 5 Non-Negotiable Architectural Directives, audit each draft for zero domain contamination and mathematical rigor, and publish all 199 requirements as formal tracked issues on GitHub via the `gh` CLI using 199 private, context-isolated subagent dispatches (strictly 1 requirement item per dispatch).
 - **Phase Boundary:** Specification formalization and backlog tracking ONLY. Writing implementation code, creating crates, or generating mock implementations is strictly prohibited during this phase.
 
 ---
 
 ## 2. Inviolable Clean-Room Invariants
 
-Every agent in the swarm MUST strictly enforce these four zero-compromise rules:
+Every agent in the swarm MUST strictly enforce these five zero-compromise rules:
 
 1. **Pure Schema-Driven Compiler (Zero Hardcoded Domain Concepts):**
    The compiler is an abstract Model-Based Systems Engineering (MBSE) compiler and formal verification engine. It operates exclusively on generic systems engineering primitives: Classifiers, Ports, Connectors, Rational Dimensional Exponents, Kirchhoff Flow Networks, and Temporal Intervals. All entities, signals, physical bounds, and units derive deterministically from user-supplied schemas. Every example, scenario, or parameter must use purely synthetic abstract placeholders (e.g., `Package_0`, `Classifier_Alpha`, `Port_1`, `Flow_A`, `param_x : Real`).
 2. **The Zero Mock-Data Imperative:**
    Under no circumstances shall any elaborated requirement contain hypothetical or fabricated concrete domain models. All illustrative examples must use purely abstract mathematical placeholders (e.g., `Classifier_Alpha`, `Port_1`, `[M]^1 [L]^2`).
 3. **Pure KaTeX Display Math:**
-   All display mathematical equations must be enclosed in isolated `$$` fences on dedicated lines; multi-line equations must use `\begin{aligned} ... \end{aligned}`. Non-mathematical identifiers must never use math delimiters.
+   All display mathematical equations must be enclosed in isolated `$$` fences on dedicated lines; multi-line equations must use `\begin{aligned} ... \end{aligned}`. Markdown table cells must never contain `$` math delimiters (plain text or Unicode symbols only). Non-mathematical identifiers must never use math delimiters.
 4. **Zero Unicode Em Dashes:**
    ASCII `--` or `-` exclusively across all issue titles, bodies, and labels. Unicode em dashes (`\u2014`) are strictly prohibited.
+5. **Mandatory Single-Item Scope Invariant:**
+   Every worker subagent dispatch MUST target at most 1 specification item (exactly 1 requirement item per dispatch). Legacy subsystem batching (e.g., multi-requirement batches) is strictly prohibited across the entire swarm.
 
 ---
 
@@ -162,76 +164,78 @@ rejecting unquantified non-linear arithmetic and undecidable theories prior to s
 
 ---
 
-## 5. Multi-Agent Swarm Topology & Role Assignments
+## 5. Multi-Agent Swarm Topology & Subagent Dispatch Protocol
 
-The swarm is structured into four distinct roles operating under a coordinated pipeline:
+The swarm operates under the Mandatory Single-Item Scope Invariant, executing 199 private, context-isolated subagent dispatches (exactly 1 requirement per dispatch):
 
 ```mermaid
 flowchart TD
-    Orchestrator["Role 1: Swarm Lead Orchestrator<br/>(Task Partitioning & Ledger Tracking)"]
-    W1["Worker 1<br/>(Subsystems 1-3: REQ-0001..0053)"]
-    W2["Worker 2<br/>(Subsystem 4: REQ-0054..0097)"]
-    W3["Worker 3<br/>(Subsystems 5-7: REQ-0098..0144)"]
-    W4["Worker 4<br/>(Subsystems 8-10: REQ-0145..0189)"]
-    W5["Worker 5<br/>(Subsystems 11-12: REQ-0190..0199)"]
-    Auditor["Role 3: Adversarial Clean-Room Auditor<br/>(5 Directives, Math, Purity Verification)"]
-    Publisher["Role 4: GitHub Backlog Publisher<br/>(gh issue create & Traceability Index)"]
-    MasterSpec["docs/requirements/REQUIREMENTS.md<br/>(Final Backlog SSOT)"]
+    Orchestrator["Role 1: Swarm Lead Orchestrator<br/>(Single-Item Dispatch & Ledger Tracking)"]
+    Queue["Single-Item Dispatch Queue<br/>(199 Private, Context-Isolated Dispatches)"]
+    W_Item1["Subagent REQ-0001<br/>(Scope: 1 Item)"]
+    W_Item2["Subagent REQ-0002<br/>(Scope: 1 Item)"]
+    W_ItemDots["...<br/>(Independent Ephemeral Workers)"]
+    W_Item199["Subagent REQ-0199<br/>(Scope: 1 Item)"]
+    Auditor["Role 3: Adversarial Clean-Room Auditor<br/>(Directives, KaTeX Math & Purity Verification)"]
+    Publisher["Role 4: GitHub Backlog Publisher<br/>(gh issue create --body-file)"]
+    MasterSpec["docs/requirements/REQUIREMENTS.md<br/>(Final Sovereign Backlog SSOT)"]
 
-    Orchestrator --> W1
-    Orchestrator --> W2
-    Orchestrator --> W3
-    Orchestrator --> W4
-    Orchestrator --> W5
-    W1 --> Auditor
-    W2 --> Auditor
-    W3 --> Auditor
-    W4 --> Auditor
-    W5 --> Auditor
-    Auditor -->|Passed Subsystem Drafts| Publisher
+    Orchestrator --> Queue
+    Queue --> W_Item1
+    Queue --> W_Item2
+    Queue --> W_ItemDots
+    Queue --> W_Item199
+    W_Item1 --> Auditor
+    W_Item2 --> Auditor
+    W_ItemDots --> Auditor
+    W_Item199 --> Auditor
+    Auditor -->|Passed Individual Drafts| Publisher
     Publisher --> MasterSpec
 ```
 
-### Role 1: Swarm Lead Orchestrator (Lead Systems Architect)
-- **Responsibility:** Ingests `REQUIREMENTS_SKELETON.md` and modular items in `docs/requirements/items/`, partitions the 199 requirements into Subsystem batches, tracks batch status in `.teamwork/status_ledger.json`, coordinates handoffs, and compiles the final `REQUIREMENTS.md`.
-- **Constraint:** Does not elaborate requirements directly; coordinates workers and enforces quality gates.
+### Role 1: Swarm Lead Orchestrator (Single-Item Dispatch & Ledger Tracking)
+- **Responsibility:** Ingests modular requirement items directly from `docs/requirements/items/`, dispatches each requirement individually as an isolated subagent task (`REQ-0001` through `REQ-0199`), tracks completion status in `.teamwork/status_ledger.json`, coordinates quality handoffs, and compiles the final `REQUIREMENTS.md`.
+- **Constraint:** Does not elaborate requirements directly; coordinates single-item dispatches and enforces quality gates.
 
-### Role 2: Subsystem Detailing Workers (Parallel Specification Engineers)
-- **Responsibility:** Ingest assigned Subsystem requirements from `docs/requirements/items/` and `REQUIREMENTS_SKELETON.md`, apply the 5 Architectural Directives, and write out fully expanded 4-part specification blocks into intermediate files (`.teamwork/drafts/subsystem_<NN>_elaborated.md`).
-- **Partitioning Structure:**
-  - Worker 1: Subsystems 1--3 (`REQ-0001`..`REQ-0053`, 53 items)
-  - Worker 2: Subsystem 4 (`REQ-0054`..`REQ-0097`, 44 items)
-  - Worker 3: Subsystems 5--7 (`REQ-0098`..`REQ-0144`, 47 items)
-  - Worker 4: Subsystems 8--10 (`REQ-0145`..`REQ-0189`, 45 items)
-  - Worker 5: Subsystems 11--12 (`REQ-0190`..`REQ-0199`, 10 items)
+### Role 2: Single-Item Specification Engineers (Parallel Context-Isolated Subagents)
+- **Responsibility:** Ingest assigned single requirement item (`REQ-XXXX.md`) from `docs/requirements/items/`, apply the 5 Non-Negotiable Architectural Directives, and write out fully expanded 4-part specification blocks into individual draft files (`.teamwork/drafts/REQ-XXXX_elaborated.md`).
+- **Scope Invariant:** Strictly 1 requirement per subagent context. Batching multiple requirements into a single subagent dispatch is strictly prohibited.
 
 ### Role 3: Adversarial Clean-Room & Mathematical Auditor
-- **Responsibility:** Audits each `.teamwork/drafts/subsystem_<NN>_elaborated.md` before publication. Rejects any draft with:
+- **Responsibility:** Audits each individual draft `.teamwork/drafts/REQ-XXXX_elaborated.md` before publication. Rejects any draft with:
   - Domain concept leaks (only abstract placeholders permitted: `Package_0`, `Classifier_Alpha`, etc.).
   - Mock data or concrete domain models.
   - "UUIDv7" references (must be Deterministic UUIDv5).
   - Unbounded thread spawning (must be bounded work-stealing).
   - Missing interner exception, sync error recovery, or panic-free release isolation.
-  - Formatting violations (unisolated `$$`, top-level `\begin{align}`, Unicode em dashes).
+  - Formatting violations (unisolated `$$`, top-level `\begin{align}`, math delimiters in tables, Unicode em dashes).
+  - Third-party crate leaks or concrete compiler module leaks (technology-neutral systems engineering primitives exclusively).
 
 ### Role 4: GitHub Backlog Publisher & Traceability Specialist
-- **Responsibility:** Takes approved, audited Subsystem drafts and creates formal GitHub issues via `gh issue create`. Records issue numbers, titles, and URLs in `.teamwork/issue_manifest.json`, ensuring idempotent publication and verified issue creation.
+- **Responsibility:** Takes approved, audited requirement drafts from `.teamwork/drafts/REQ-XXXX_elaborated.md` and creates formal GitHub issues via `gh issue create` using `--body-file`. Records issue numbers, titles, and URLs in `.teamwork/issue_manifest.json`, ensuring idempotent publication and verified issue creation.
 
 ---
 
-## 6. Mandatory 4-Part Detailing Schema
+## 6. Mandatory 4-Part Contract Schema
 
-Every single one of the 199 requirements (`REQ-0001` through `REQ-0199`) MUST be elaborated using this exact Markdown template without omitting any fields:
+Every single one of the 199 requirements (`REQ-0001` through `REQ-0199`) MUST be elaborated using this exact Markdown contract schema without omitting any fields:
 
 ```markdown
 ### [REQ-XXXX]: [Requirement Title]
-**Description:** [1-3 concise sentences defining the exact compiler behavior, inputs, and outputs]
-**Mathematical / Logical Invariant:** [Formal mathematical formula, O(N) complexity bound, topological graph property, or boolean state invariant. Use KaTeX with isolated `$$` fences. If strictly structural, state N/A]
-**Acceptance Criteria:**
-- **AC-1:** [Concrete, unambiguous verification condition, e.g., The compiler shall emit diagnostic E0XXX if...]
-- **AC-2:** [Structural / data invariant condition, e.g., The AST node arena must preserve...]
-- **AC-3:** [Edge case / error recovery condition]
-**Implementation Constraint:** [Architectural and memory boundary, e.g., "Must use scalar SymbolId index handles", "Must enforce deterministic non-panicking execution in production paths", "Must allocate via arena storage"]
+
+- **Normative Statement**: [Positive prescriptive specification using RFC 2119 keywords ("shall" / "must") defining the exact compiler behavior, input schemas, AST lowering, and emitted outputs with zero negative constraints and zero hardcoded domain assumptions]
+
+- **Formal Invariant**:
+$$
+\begin{aligned}
+[KaTeX \text{ display math equation defining mathematical properties, algebraic invariants,}] \\
+[graph topologies, conservation laws, or type lattice constraints on dedicated } \$\$ \text{ fences}]
+\end{aligned}
+$$
+
+- **Computational Complexity & Algorithmic Bounds**: [Explicit computational complexity class (e.g. P, NP-complete, PSPACE-complete), asymptotic bounds (e.g. O(1), O(N), O(V + E), O(N^3)), tractable fragment restriction (e.g. ORD-Horn, meet-semilattice, FFD heuristic), and formal NP-1..NP-8 frontier bindings where applicable]
+
+- **Verification & Conformance Criteria**: [Deterministic verification check and acceptance criteria (AC-1..AC-N), specifying automated compiler passes, static typing assertions, and standardized diagnostic error code bindings (E01xx--E05xx per REQ-0191)]
 ```
 
 ---
@@ -240,228 +244,242 @@ Every single one of the 199 requirements (`REQ-0001` through `REQ-0199`) MUST be
 
 The swarm must process all 199 requirements across their respective Subsystems:
 
+### 7.1 Standardized Compiler Diagnostic Taxonomy (REQ-0191)
+
+The compiler diagnostic architecture enforces a partitioned 5-tier diagnostic code space (`E0100`--`E0599`) per REQ-0191:
+
+| Range | Domain / Family | Description & Scope | Target Subsystems | Representative Codes |
+| :--- | :--- | :--- | :--- | :--- |
+| E01xx | Ingestion & Lexer | File format detection, CommonMark parsing, table row mappings, protocol AST ingestion | Subsystem 1, Subsystem 2 | E0100, E0102, E0103, E0104, E0199 |
+| E02xx | Metamodel & Typing | Arena allocation, string interning, scope resolution, cycle detection, KerML/SysML v2 lowering, AST slicing | Subsystem 3, Subsystem 4, Subsystem 9 | E0200, E0201, E0202, E0203, E0220, E0230, E0231, E0232, E0299 |
+| E03xx | Metrology & Conservation | Q^7 rational vector space, dimensional homogeneity, Kirchhoff flow/potential laws, operational envelopes | Subsystem 5, Subsystem 8 | E0300, E0301, E0399 |
+| E04xx | Dynamics, State & Safety | Allen interval consistency, state machine reachability, STPA hazards, FMECA failure modes, schedulability | Subsystem 6, Subsystem 7, Subsystem 8, Subsystem 12 | E0400, E0406, E0440, E0442, E0443, E0444, E0451, E0499 |
+| E05xx | ICD, Projections & Backend | Interface control documents, DTOs, LUMI IR, code generation, reverse-sync prose gate | Subsystem 8, Subsystem 9, Subsystem 10, Subsystem 11 | E0500, E0502, E0599 |
+
+### 7.2 Subsystem Requirement Catalogs
+
 ### Subsystem 1: System Vision, Bootstrapping & Foundational Invariants (`REQ-0001` -- `REQ-0013`) [13 items]
-- `REQ-0001`: Abstract MBSE Compiler Mandate & Pure Schema-Driven Execution
-- `REQ-0002`: Surjective Lexical Provenance Gate & Positive AST Provenance
-- `REQ-0003`: Bitwise Determinism & Zero Diff Churn Verification
-- `REQ-0004`: Workspace Sovereignty & Dynamic Relative Path Resolution
-- `REQ-0005`: Standalone Self-Contained Execution & Environment Independence
-- `REQ-0006`: Incremental Compilation Dependency Tracking & AST Cache Invalidation
-- `REQ-0007`: Multi-File Compilation Unit Resolution & Hierarchical Package Scoping
-- `REQ-0008`: Sovereign Single Source of Truth (SSOT) Multi-File AST Model
-- `REQ-0009`: Zero-Copy Bump Arena Memory Management
-- `REQ-0010`: Deterministic RFC 4122 UUIDv5 Topological Namespace Hashing
-- `REQ-0011`: Deterministic Non-Panicking Execution Contract & Release Latency Bounds
-- `REQ-0012`: Bounded Work-Stealing Parallelism & Thread Isolation
-- `REQ-0013`: Synchronization Token Error Recovery Architecture
+- `REQ-0001`: Abstract MBSE Compiler Mandate & Pure Schema-Driven Execution [Diagnostic: E01xx]
+- `REQ-0002`: Surjective Lexical Provenance Gate & Positive AST Provenance [Diagnostic: E01xx]
+- `REQ-0003`: Bitwise Determinism & Zero Diff Churn Verification [Diagnostic: E01xx]
+- `REQ-0004`: Workspace Sovereignty & Dynamic Relative Path Resolution [Diagnostic: E01xx]
+- `REQ-0005`: Standalone Self-Contained Execution & Environment Independence [Diagnostic: E01xx]
+- `REQ-0006`: Incremental Compilation Dependency Tracking & AST Cache Invalidation [Diagnostic: E01xx]
+- `REQ-0007`: Multi-File Compilation Unit Resolution & Hierarchical Package Scoping [Diagnostic: E01xx]
+- `REQ-0008`: Sovereign Single Source of Truth (SSOT) Multi-File AST Model [Diagnostic: E01xx]
+- `REQ-0009`: Zero-Copy Bump Arena Memory Management [Diagnostic: E01xx]
+- `REQ-0010`: Deterministic RFC 4122 UUIDv5 Topological Namespace Hashing [Directive 1 (Deterministic UUIDv5)] [Diagnostic: E01xx]
+- `REQ-0011`: Deterministic Non-Panicking Execution Contract & Release Latency Bounds [Directive 5 (Panic-Free Release Isolation)] [Diagnostic: E01xx]
+- `REQ-0012`: Bounded Work-Stealing Parallelism & Thread Isolation [Directive 2 (Bounded Work-Stealing)] [Diagnostic: E01xx]
+- `REQ-0013`: Synchronization Token Error Recovery Architecture [Directive 4 (Sync Token Recovery)] [Diagnostic: E01xx]
 
 ### Subsystem 2: Universal Schema Ingestion Engine (`REQ-0014` -- `REQ-0033`) [20 items]
-- `REQ-0014`: File Format Detection Engine by Extension & Magic Signatures
-- `REQ-0015`: Event-Driven CommonMark Table Lexer & Token Streaming
-- `REQ-0016`: Synchronization Token Recovery on Table Delimiter Boundaries
-- `REQ-0017`: Dynamic Semantic Header Key Normalization & Order-Independent Binding
-- `REQ-0018`: Multi-Line Table Cell Block Token Preservation & Normalization
-- `REQ-0019`: Table Row-to-Entity Structural Mapping & Identifier Sanitization
-- `REQ-0020`: Disambiguation of Array Indexing Syntax in Tabular Schemas
-- `REQ-0021`: Tabular Schema Ingestion for Structural Parts & Component Assemblies
-- `REQ-0022`: Tabular Schema Ingestion for Directed Ports & Structural Interfaces
-- `REQ-0023`: Tabular Schema Ingestion for Attributes, Data Types & Numerical Envelopes
-- `REQ-0024`: Tabular Schema Ingestion for Formal Constraints & Operational Envelopes
-- `REQ-0025`: Tabular Schema Ingestion for Topological Connections & Interconnects
-- `REQ-0026`: Tabular Schema Ingestion for Behaviors, Actions & State Transitions
-- `REQ-0027`: Protocol Buffer (Proto3) AST Ingestion for Messages, Fields & RPCs
-- `REQ-0028`: OMG IDL AST Ingestion for Structs, Interfaces & Directional Parameters
-- `REQ-0029`: OpenAPI (JSON/YAML) Schema Ingestion for Paths, Operations & Payloads
-- `REQ-0030`: Architecture Description Language (ADL) AST Ingestion for Component Topologies
-- `REQ-0031`: Canonical SysML v2 Textual Model Emission (`schema/model.sysml`)
-- `REQ-0032`: Deterministic Qualified-Name Symbol Sorting for Canonical Model Emission
-- `REQ-0033`: Multi-File Cryptographic Digest Computation (`.pipeline/schema-digest.json`)
+- `REQ-0014`: File Format Detection Engine by Extension & Magic Signatures [Diagnostic: E01xx]
+- `REQ-0015`: Event-Driven CommonMark Table Lexer & Token Streaming [Diagnostic: E01xx]
+- `REQ-0016`: Synchronization Token Recovery on Table Delimiter Boundaries [Directive 4 (Sync Token Recovery)] [Diagnostic: E0102]
+- `REQ-0017`: Dynamic Semantic Header Key Normalization & Order-Independent Binding [Diagnostic: E01xx]
+- `REQ-0018`: Multi-Line Table Cell Block Token Preservation & Normalization [Diagnostic: E01xx]
+- `REQ-0019`: Table Row-to-Entity Structural Mapping & Identifier Sanitization [Diagnostic: E01xx]
+- `REQ-0020`: Disambiguation of Array Indexing Syntax in Tabular Schemas [Diagnostic: E01xx]
+- `REQ-0021`: Tabular Schema Ingestion for Structural Parts & Component Assemblies [Diagnostic: E01xx]
+- `REQ-0022`: Tabular Schema Ingestion for Directed Ports & Structural Interfaces [Diagnostic: E01xx]
+- `REQ-0023`: Tabular Schema Ingestion for Attributes, Data Types & Numerical Envelopes [Diagnostic: E0103]
+- `REQ-0024`: Tabular Schema Ingestion for Formal Constraints & Operational Envelopes [Diagnostic: E01xx]
+- `REQ-0025`: Tabular Schema Ingestion for Topological Connections & Interconnects [Diagnostic: E0104]
+- `REQ-0026`: Tabular Schema Ingestion for Behaviors, Actions & State Transitions [Diagnostic: E01xx]
+- `REQ-0027`: Protocol Buffer (Proto3) AST Ingestion for Messages, Fields & RPCs [Diagnostic: E01xx]
+- `REQ-0028`: OMG IDL AST Ingestion for Structs, Interfaces & Directional Parameters [Diagnostic: E01xx]
+- `REQ-0029`: OpenAPI (JSON/YAML) Schema Ingestion for Paths, Operations & Payloads [Diagnostic: E01xx]
+- `REQ-0030`: XML Schema Definition (XSD) & ADL Schema Ingestion for Component Topologies [Diagnostic: E01xx]
+- `REQ-0031`: Canonical SysML v2 Textual Model Emission (`schema/model.sysml`) [Diagnostic: E01xx]
+- `REQ-0032`: Deterministic Qualified-Name Symbol Sorting for Canonical Model Emission [Diagnostic: E01xx]
+- `REQ-0033`: Multi-File Cryptographic Digest Computation (`.pipeline/schema-digest.json`) [Diagnostic: E01xx]
 
 ### Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine (`REQ-0034` -- `REQ-0053`) [20 items]
-- `REQ-0034`: Contiguous Memory Lowering & Linear Allocation Complexity
-- `REQ-0035`: Deterministic Node Handle Addressing & Reference Safety
-- `REQ-0036`: Concurrent String Interning & Scalar Symbol Deduplication Architecture
-- `REQ-0037`: Classifier Definition & Feature Usage Metamodel Typing Relations
-- `REQ-0038`: Strongly Typed Port Directions (`in`, `out`, `inout`) & Directional Invariants
-- `REQ-0039`: Flow Payload Binding & Stream Rate Multiplicity Validation
-- `REQ-0040`: Two-Pass Symbol Hoisting & Lexical Scope Table Construction
-- `REQ-0041`: Lexical Scope Lookup & Fully Qualified Path Resolution (`::`)
-- `REQ-0042`: Circular Dependency & Metamodel Inheritance Cycle Detection
-- `REQ-0043`: Multi-File Module Ingestion & Directory-to-Namespace Hierarchy Mapping
-- `REQ-0044`: Lossless AST Serialization & Deserialization (JSON & CBOR Formats)
-- `REQ-0045`: Immutable AST Graph Traversal Engine with Bounded Linear Complexity
-- `REQ-0046`: Mutable AST Transformation & In-Place Rewrite Engine
-- `REQ-0047`: Graph-Theoretic AST Representation (`AstModelGraph` over `petgraph`)
-- `REQ-0048`: Topological Sort Dependency Scheduling (Tarjan SCC & Kahn Algorithms)
-- `REQ-0049`: Context-Bounded AST Slicing (`query_slice`) for Token-Isolated Subagents
-- `REQ-0050`: AST Slice Serialization Contract with Reified Dependency Envelopes
-- `REQ-0051`: Incremental Compilation Cache Invalidation via Module Dependency DAG
-- `REQ-0052`: Memory-Mapped Diff Engine (`memmap2`) for Unmodified File Bypass
-- `REQ-0053`: Tombstone Pruning Engine for Renamed & Orphaned AST Nodes
+- `REQ-0034`: Contiguous Memory Lowering & Linear Allocation Complexity [Diagnostic: E02xx]
+- `REQ-0035`: Deterministic Node Handle Addressing & Reference Safety [Diagnostic: E02xx]
+- `REQ-0036`: Concurrent String Interning & Scalar Symbol Deduplication Architecture [Directive 3 (Interner Exception)] [Diagnostic: E02xx]
+- `REQ-0037`: Classifier Definition & Feature Usage Metamodel Typing Relations [Diagnostic: E02xx]
+- `REQ-0038`: Strongly Typed Port Directions (`in`, `out`, `inout`) & Directional Invariants [Diagnostic: E0201]
+- `REQ-0039`: Flow Payload Binding & Stream Rate Multiplicity Validation [Diagnostic: E0202]
+- `REQ-0040`: Two-Pass Symbol Hoisting & Lexical Scope Table Construction [Diagnostic: E02xx]
+- `REQ-0041`: Lexical Scope Lookup & Fully Qualified Path Resolution (`::`) [Diagnostic: E02xx]
+- `REQ-0042`: Circular Dependency & Metamodel Inheritance Cycle Detection [Diagnostic: E0203]
+- `REQ-0043`: Multi-File Module Ingestion & Directory-to-Namespace Hierarchy Mapping [Diagnostic: E02xx]
+- `REQ-0044`: Lossless AST Serialization & Deserialization (JSON & CBOR Formats) [Diagnostic: E02xx]
+- `REQ-0045`: Immutable AST Graph Traversal Engine with Bounded Linear Complexity [Diagnostic: E02xx]
+- `REQ-0046`: Mutable AST Transformation & In-Place Rewrite Engine [Diagnostic: E02xx]
+- `REQ-0047`: Graph-Theoretic AST Representation & Directed Multigraph Metamodel [Diagnostic: E02xx]
+- `REQ-0048`: Topological Sort Dependency Scheduling (Tarjan SCC & Kahn Algorithms) [Diagnostic: E02xx]
+- `REQ-0049`: Context-Bounded AST Slicing (`query_slice`) for Token-Isolated Subagents [Diagnostic: E02xx]
+- `REQ-0050`: AST Slice Serialization Contract with Reified Dependency Envelopes [Diagnostic: E02xx]
+- `REQ-0051`: Incremental Compilation Cache Invalidation via Module Dependency DAG [Diagnostic: E02xx]
+- `REQ-0052`: Memory-Mapped Diff Engine & Unmodified Output File Bypass [Diagnostic: E02xx]
+- `REQ-0053`: Tombstone Pruning Engine for Renamed & Orphaned AST Nodes [Diagnostic: E02xx]
 
 ### Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar (`REQ-0054` -- `REQ-0097`) [44 items]
-- `REQ-0054`: KerML Root, Element, Relationship & Annotation Abstract Syntax
-- `REQ-0055`: KerML Namespace, Membership, OwningMembership & Qualified Naming
-- `REQ-0056`: KerML Import Declaration Semantics (Public, Private, All, Filtered)
-- `REQ-0057`: KerML Core Classifiers: Type, Classifier, DataType, Class, Structure
-- `REQ-0058`: KerML Association, AssociationStructure & Link Semantics
-- `REQ-0059`: KerML Interaction & Step Abstract Syntax Semantics
-- `REQ-0060`: KerML Core Features: Feature, Parameter, Step & FeatureTyping Semantics
-- `REQ-0061`: KerML Subsetting Relationship (`:>`) Lowering & Co-variance Invariants
-- `REQ-0062`: KerML Redefinition Relationship (`:>>`) Lowering & Type Conformance
-- `REQ-0063`: KerML Conjugation Relationship (`~`) Lowering & Port Inversion
-- `REQ-0064`: KerML Disjoining, Differencing, Intersecting & Unioning Type Algebra
-- `REQ-0065`: KerML Expressions: Expression, Literal, OperatorExpression & Invocations
-- `REQ-0066`: KerML Functions: Function, Parameter Directions & Return Typing
-- `REQ-0067`: KerML Occurrences: OccurrenceDefinition & OccurrenceUsage Semantics
-- `REQ-0068`: KerML PortionKind, TimeSlice, Snapshot & EventOccurrence Semantics
-- `REQ-0069`: KerML Behaviors: Performance, Execution & ActionUsage Semantics
-- `REQ-0070`: SysML v2 Package & Subsystem Model Organization Grammar
-- `REQ-0071`: SysML v2 PartDefinition (`part def`) & PartUsage (`part`) Lowering
-- `REQ-0072`: SysML v2 PortDefinition (`port def`) & DirectedPort Usage Lowering
-- `REQ-0073`: SysML v2 ItemDefinition (`item def`) & ItemUsage (`item`) Lowering
-- `REQ-0074`: SysML v2 ConnectionDefinition (`connection def`) & ConnectionUsage Lowering
-- `REQ-0075`: SysML v2 InterfaceDefinition (`interface def`) & InterfaceUsage Lowering
-- `REQ-0076`: SysML v2 ItemFlow (`flow`) & Streaming Direction Lowering
-- `REQ-0077`: SysML v2 AllocationDefinition (`allocation def`) & AllocationUsage Lowering
-- `REQ-0078`: SysML v2 ActionDefinition (`action def`) & ActionUsage (`action`) Lowering
-- `REQ-0079`: SysML v2 StateDefinition (`state def`), StateUsage (`state`) & ParallelState
-- `REQ-0080`: SysML v2 TransitionUsage (`transition`) with Triggers, Guards & Effects
-- `REQ-0081`: SysML v2 EntryAction, DoAction & ExitAction State Lifecycle Hooks
-- `REQ-0082`: SysML v2 CalculationDefinition (`calc def`) & CalculationUsage Lowering
-- `REQ-0083`: SysML v2 ConstraintDefinition (`constraint def`) & ConstraintUsage Lowering
-- `REQ-0084`: SysML v2 AssertConstraintUsage (`assert constraint`) Lowering
-- `REQ-0085`: SysML v2 RequirementDefinition (`requirement def`) & RequirementUsage Lowering
-- `REQ-0086`: SysML v2 SatisfyRequirementUsage (`satisfy requirement`) Traceability
-- `REQ-0087`: SysML v2 VerificationCaseDefinition (`verification def`) & VerificationUsage
-- `REQ-0088`: SysML v2 ViewDefinition (`view def`), ViewUsage & Viewpoint Lowering
-- `REQ-0089`: SysML v2 Expose Filtering & Viewpoint Conformance Grammar
-- `REQ-0090`: SysML v2 MetadataDefinition (`metadata def`) & Semantic Annotation Usage (`@`)
-- `REQ-0091`: KerML Standard Library: `Base` Package & Primitive Equality Lowering
-- `REQ-0092`: Canonical Scalar Type Lowering & Precision Preservation
-- `REQ-0093`: KerML Standard Library: `Collections` Package (Set, Sequence, OrderedSet, Bag)
-- `REQ-0094`: KerML Standard Library: `ControlFunctions` Package (Decision, Merge, Fork, Join)
-- `REQ-0095`: SysML v2 Quantities Library: `Quantities` & Measurement Scale Lowering
-- `REQ-0096`: SysML v2 Quantities Library: `ISQ` & `ISQBase` Dimension Systems
-- `REQ-0097`: SysML v2 Quantities Library: `SI` Base & Derived Unit Definitions
+- `REQ-0054`: KerML Root, Element, Relationship & Annotation Abstract Syntax [Diagnostic: E02xx]
+- `REQ-0055`: KerML Namespace, Membership, OwningMembership & Qualified Naming [Diagnostic: E02xx]
+- `REQ-0056`: KerML Import Declaration Semantics (Public, Private, All, Filtered) [Diagnostic: E02xx]
+- `REQ-0057`: KerML Core Classifiers: Type, Classifier, DataType, Class, Structure [Diagnostic: E02xx]
+- `REQ-0058`: KerML Association, AssociationStructure & Link Semantics [Diagnostic: E02xx]
+- `REQ-0059`: KerML Interaction & Step Abstract Syntax Semantics [Diagnostic: E02xx]
+- `REQ-0060`: KerML Core Features: Feature, Parameter, Step & FeatureTyping Semantics [Diagnostic: E02xx]
+- `REQ-0061`: KerML Subsetting Relationship (`:>`) Lowering & Co-variance Invariants [NP-3 (Subtyping Lattice & C3 Linearization)] [Diagnostic: E02xx]
+- `REQ-0062`: KerML Redefinition Relationship (`:>>`) Lowering & Type Conformance [NP-3 (Subtyping Lattice & C3 Linearization)] [Diagnostic: E02xx]
+- `REQ-0063`: KerML Conjugation Relationship (`~`) Lowering & Port Inversion [NP-3 (Subtyping Lattice & C3 Linearization)] [Diagnostic: E02xx]
+- `REQ-0064`: KerML Disjoining, Differencing, Intersecting & Unioning Type Algebra [Diagnostic: E02xx]
+- `REQ-0065`: KerML Expressions: Expression, Literal, OperatorExpression & Invocations [Diagnostic: E02xx]
+- `REQ-0066`: KerML Functions: Function, Parameter Directions & Return Typing [Diagnostic: E02xx]
+- `REQ-0067`: KerML Occurrences: OccurrenceDefinition & OccurrenceUsage Semantics [Diagnostic: E02xx]
+- `REQ-0068`: KerML PortionKind, TimeSlice, Snapshot & EventOccurrence Semantics [Diagnostic: E02xx]
+- `REQ-0069`: KerML Behaviors: Performance, Execution & ActionUsage Semantics [Diagnostic: E02xx]
+- `REQ-0070`: SysML v2 Package & Subsystem Model Organization Grammar [Diagnostic: E02xx]
+- `REQ-0071`: SysML v2 PartDefinition (`part def`) & PartUsage (`part`) Lowering [Diagnostic: E02xx]
+- `REQ-0072`: SysML v2 PortDefinition (`port def`) & DirectedPort Usage Lowering [Diagnostic: E02xx]
+- `REQ-0073`: SysML v2 ItemDefinition (`item def`) & ItemUsage (`item`) Lowering [Diagnostic: E02xx]
+- `REQ-0074`: SysML v2 ConnectionDefinition (`connection def`) & ConnectionUsage Lowering [Diagnostic: E02xx]
+- `REQ-0075`: SysML v2 InterfaceDefinition (`interface def`) & InterfaceUsage Lowering [Diagnostic: E02xx]
+- `REQ-0076`: SysML v2 ItemFlow (`flow`) & Streaming Direction Lowering [Diagnostic: E02xx]
+- `REQ-0077`: SysML v2 AllocationDefinition (`allocation def`) & AllocationUsage Lowering [Diagnostic: E02xx]
+- `REQ-0078`: SysML v2 ActionDefinition (`action def`) & ActionUsage (`action`) Lowering [Diagnostic: E02xx]
+- `REQ-0079`: SysML v2 StateDefinition (`state def`), StateUsage (`state`) & ParallelState [Diagnostic: E02xx]
+- `REQ-0080`: SysML v2 TransitionUsage (`transition`) with Triggers, Guards & Effects [Diagnostic: E02xx]
+- `REQ-0081`: SysML v2 EntryAction, DoAction & ExitAction State Lifecycle Hooks [Diagnostic: E02xx]
+- `REQ-0082`: SysML v2 CalculationDefinition (`calc def`) & CalculationUsage Lowering [Diagnostic: E02xx]
+- `REQ-0083`: SysML v2 ConstraintDefinition (`constraint def`) & ConstraintUsage Lowering [Diagnostic: E02xx]
+- `REQ-0084`: SysML v2 AssertConstraintUsage (`assert constraint`) Lowering [Diagnostic: E02xx]
+- `REQ-0085`: SysML v2 RequirementDefinition (`requirement def`) & RequirementUsage Lowering [Diagnostic: E02xx]
+- `REQ-0086`: SysML v2 SatisfyRequirementUsage (`satisfy requirement`) Traceability [Diagnostic: E02xx]
+- `REQ-0087`: SysML v2 VerificationCaseDefinition (`verification def`) & VerificationUsage [Diagnostic: E02xx]
+- `REQ-0088`: SysML v2 ViewDefinition (`view def`), ViewUsage & Viewpoint Lowering [Diagnostic: E02xx]
+- `REQ-0089`: SysML v2 Expose Filtering & Viewpoint Conformance Grammar [Diagnostic: E02xx]
+- `REQ-0090`: SysML v2 MetadataDefinition (`metadata def`) & Semantic Annotation Usage (`@`) [Diagnostic: E02xx]
+- `REQ-0091`: KerML Standard Library: `Base` Package & Primitive Equality Lowering [Diagnostic: E02xx]
+- `REQ-0092`: Canonical Scalar Type Lowering & Precision Preservation [Diagnostic: E02xx]
+- `REQ-0093`: KerML Standard Library: `Collections` Package (Set, Sequence, OrderedSet, Bag) [Diagnostic: E02xx]
+- `REQ-0094`: KerML Standard Library: `ControlFunctions` Package (Decision, Merge, Fork, Join) [Diagnostic: E02xx]
+- `REQ-0095`: SysML v2 Quantities Library: `Quantities` & Measurement Scale Lowering [Diagnostic: E02xx]
+- `REQ-0096`: SysML v2 Quantities Library: `ISQ` & `ISQBase` Dimension Systems [Diagnostic: E02xx]
+- `REQ-0097`: SysML v2 Quantities Library: `SI` Base & Derived Unit Definitions [Diagnostic: E02xx]
 
 ### Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks (`REQ-0098` -- `REQ-0113`) [16 items]
-- `REQ-0098`: Formal $\\mathbb{Q}^7$ Rational Vector Space over SI Base Dimensions
-- `REQ-0099`: Base Dimension Tuple Representation & Generalized Conjugate Power Pairs
-- `REQ-0100`: Exact Rational Exponent Arithmetic & Kirchhoff Continuity Conservation
-- `REQ-0101`: Static Dimensional Homogeneity Validation for Additive Expressions ($A \\pm B$)
-- `REQ-0102`: Multiplicative Dimensional Exponent Addition & Subtraction ($A \\cdot B, A / B$)
-- `REQ-0103`: Dimensionless Constraint Enforcement for Transcendental Arguments ($\\sin, \\cos, \\exp, \\ln$)
-- `REQ-0104`: Rational Power Evaluation for Fractional Exponents ($A^{p/q}$)
-- `REQ-0105`: Switched & Piecewise Conservative Flow Networks & Linear Complementarity Solvers (NP-6)
-- `REQ-0106`: Conservative vs Non-Conservative Flow Network Classification
-- `REQ-0107`: Generalized Conjugate Variable Pair Modeling (Effort $\\times$ Flow = Power)
-- `REQ-0108`: Generalized Kirchhoff Flow Law ($\\sum \\text{Through} = 0$) at Conservative Junctions
-- `REQ-0109`: Generalized Kirchhoff Potential Law ($\\oint \\text{Across} = 0$) across Closed Loops
-- `REQ-0110`: Flow Conservation Network Incidence Matrix Construction & Rank Verification
-- `REQ-0111`: Abstract Power Product Balance ($\\sum P_{\\text{in}} = \\sum P_{\\text{out}} + \\frac{dE}{dt}$)
-- `REQ-0112`: Parametric Operational Envelopes & Closed Interval $[v_{\\min}, v_{\\max}]$ Validation
-- `REQ-0113`: Static Boundary Value Analysis & Parametric Tolerance Envelope Verification
+- `REQ-0098`: Formal $\\mathbb{Q}^7$ Rational Vector Space over SI Base Dimensions [Diagnostic: E03xx]
+- `REQ-0099`: Base Dimension Tuple Representation & Generalized Conjugate Power Pairs [Diagnostic: E03xx]
+- `REQ-0100`: Exact Rational Exponent Arithmetic & Kirchhoff Continuity Conservation [Diagnostic: E03xx]
+- `REQ-0101`: Static Dimensional Homogeneity Validation for Additive Expressions ($A \\pm B$) [Diagnostic: E03xx]
+- `REQ-0102`: Multiplicative Dimensional Exponent Addition & Subtraction ($A \\cdot B, A / B$) [Diagnostic: E03xx]
+- `REQ-0103`: Dimensionless Constraint Enforcement for Transcendental Arguments ($\\sin, \\cos, \\exp, \\ln$) [Diagnostic: E03xx]
+- `REQ-0104`: Rational Power Evaluation for Fractional Exponents ($A^{p/q}$) [Diagnostic: E03xx]
+- `REQ-0105`: Switched & Piecewise Conservative Flow Networks & Linear Complementarity Solvers (NP-6) [NP-6 (Switched Flow Complementarity)] [Diagnostic: E03xx]
+- `REQ-0106`: Conservative vs Non-Conservative Flow Network Classification [Diagnostic: E03xx]
+- `REQ-0107`: Generalized Conjugate Variable Pair Modeling (Effort $\\times$ Flow = Power) [Diagnostic: E03xx]
+- `REQ-0108`: Generalized Kirchhoff Flow Law ($\\sum \\text{Through} = 0$) at Conservative Junctions [Diagnostic: E03xx]
+- `REQ-0109`: Generalized Kirchhoff Potential Law ($\\oint \\text{Across} = 0$) across Closed Loops [Diagnostic: E03xx]
+- `REQ-0110`: Flow Conservation Network Incidence Matrix Construction & Rank Verification [Diagnostic: E03xx]
+- `REQ-0111`: Abstract Power Product Balance ($\sum P_{\text{in}} = \sum P_{\text{out}} + \frac{dE}{dt}$) [Diagnostic: E03xx]
+- `REQ-0112`: Parametric Operational Envelopes & Closed Interval $[v_{\\min}, v_{\\max}]$ Validation [Diagnostic: E03xx]
+- `REQ-0113`: Static Boundary Value Analysis & Parametric Tolerance Envelope Verification [Diagnostic: E03xx]
 
 ### Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers (`REQ-0114` -- `REQ-0127`) [14 items]
-- `REQ-0114`: Spatio-Temporal Occurrence Lifecycles & Temporal Interval Bounds $[t_{\\text{start}}, t_{\\text{end}}]$
-- `REQ-0115`: Allen's 13 Qualitative Interval Relations Axiomatic Algebraic Solver
-- `REQ-0116`: Temporal Relation Composition Table & Path Consistency Constraint Propagation
-- `REQ-0117`: Allen's Interval Algebra Temporal Consistency & ORD-Horn SMT Solver (NP-1)
-- `REQ-0118`: Directed Causal Precedence DAG Construction & Cycle Detection
-- `REQ-0119`: Action Step Sequence Execution Semantics & Fork-Join Concurrency
-- `REQ-0120`: Hierarchical State Machine (Statechart) Containment & Orthogonal Regions
-- `REQ-0121`: State Transition Trigger Event Dispatching & Event Queue Semantics
-- `REQ-0122`: Deterministic Transition Guard Disjointness Verification ($G_1 \\wedge G_2 \\equiv \\text{false}$)
-- `REQ-0123`: Complete State Machine Reachability Analysis & Dead State Diagnostics
-- `REQ-0124`: Discrete State Machine Reachability, Deadlock & Livelock in Orthogonal Regions (NP-5)
-- `REQ-0125`: Failsafe Fallback Transitions & High-Priority Preemptive Evacuation
-- `REQ-0126`: State History Pseudostates (Shallow & Deep History) Restoration Semantics
-- `REQ-0127`: State Machine Simulation Stepper & Trace Log Generation
+- `REQ-0114`: Spatio-Temporal Occurrence Lifecycles & Temporal Interval Bounds $[t_{\\text{start}}, t_{\\text{end}}]$ [Diagnostic: E04xx]
+- `REQ-0115`: Allen's 13 Qualitative Interval Relations Axiomatic Algebraic Solver [Diagnostic: E04xx]
+- `REQ-0116`: Temporal Relation Composition Table & Path Consistency Constraint Propagation [Diagnostic: E04xx]
+- `REQ-0117`: Allen's Interval Algebra Temporal Consistency & ORD-Horn SMT Solver (NP-1) [NP-1 (Temporal Consistency)] [Diagnostic: E04xx]
+- `REQ-0118`: Directed Causal Precedence DAG Construction & Cycle Detection [Diagnostic: E04xx]
+- `REQ-0119`: Action Step Sequence Execution Semantics & Fork-Join Concurrency [Diagnostic: E04xx]
+- `REQ-0120`: Hierarchical State Machine (Statechart) Containment & Orthogonal Regions [Diagnostic: E04xx]
+- `REQ-0121`: State Transition Trigger Event Dispatching & Event Queue Semantics [Diagnostic: E04xx]
+- `REQ-0122`: Deterministic Transition Guard Disjointness Verification ($G_1 \\wedge G_2 \\equiv \\text{false}$) [Diagnostic: E04xx]
+- `REQ-0123`: Complete State Machine Reachability Analysis & Dead State Diagnostics [Diagnostic: E04xx]
+- `REQ-0124`: Discrete State Machine Reachability, Deadlock & Livelock in Orthogonal Regions (NP-5) [NP-5 (Orthogonal State Reachability)] [Diagnostic: E04xx]
+- `REQ-0125`: Failsafe Fallback Transitions & High-Priority Preemptive Evacuation [Diagnostic: E04xx]
+- `REQ-0126`: State History Pseudostates (Shallow & Deep History) Restoration Semantics [Diagnostic: E04xx]
+- `REQ-0127`: State Machine Simulation Stepper & Trace Log Generation [Diagnostic: E04xx]
 
 ### Subsystem 7: Formal Safety, Traceability & Regulatory Verification (`REQ-0128` -- `REQ-0144`) [17 items]
-- `REQ-0128`: 7-Tier Bipartite Traceability DAG Architecture
-- `REQ-0129`: Upward Allocation Completeness Gate ($\forall \text{Req}, \exists \text{Element}$)
-- `REQ-0130`: Downward Realization Completeness Gate ($\forall \text{Element}, \exists \text{Req}$)
-- `REQ-0131`: Verification Witness Completeness Gate ($\forall \text{Req}, \exists \text{Witness}$)
-- `REQ-0132`: Extraneous Node Detection & Dead Code Elimination in Safety Contexts
-- `REQ-0133`: Cryptographic Merkle Root Attestation for End-to-End Verification Graphs
-- `REQ-0134`: Hierarchical Control Structure (HCS) AST Extraction & Controller-Process Topology
-- `REQ-0135`: STPA Minimal Hazard Cut-Sets & Unsafe Control Action Minimization (NP-4)
-- `REQ-0136`: STPA Combinatorial Unsafe Control Action Tensor Expansion & Pruning
-- `REQ-0137`: Automated Boolean Safety Invariant Synthesis from Hazard Scenarios
-- `REQ-0138`: Structured `ConstraintExpr` AST Invariant Generation with De Morgan Normalization
-- `REQ-0139`: FMECA Failure Mode Synthesis across 4 Universal Dimensions (Interface, State, Action, Resource)
-- `REQ-0140`: Quantitative Risk Priority Number (RPN) Integer Scoring Engine ($RPN = S \times O \times D$)
-- `REQ-0141`: Run-Time Assurance (RTA) Simplex/Duplex Architecture Pattern Synthesis
-- `REQ-0142`: Smooth State Transition Blending & $C^1$-Continuity Bounds
-- `REQ-0143`: Control Barrier Function (CBF) Forward Invariance Contract Formulation
-- `REQ-0144`: Declarative Pluggable Regulatory Safety Profiles Engine
+- `REQ-0128`: 7-Tier Bipartite Traceability DAG Architecture [Diagnostic: E04xx]
+- `REQ-0129`: Upward Allocation Completeness Gate ($\forall \text{Req}, \exists \text{Element}$) [Diagnostic: E04xx]
+- `REQ-0130`: Downward Realization Completeness Gate ($\forall \text{Element}, \exists \text{Req}$) [Diagnostic: E04xx]
+- `REQ-0131`: Verification Witness Completeness Gate ($\forall \text{Req}, \exists \text{Witness}$) [Diagnostic: E04xx]
+- `REQ-0132`: Extraneous Node Detection & Dead Code Elimination in Safety Contexts [Diagnostic: E04xx]
+- `REQ-0133`: Cryptographic Merkle Root Attestation for End-to-End Verification Graphs [Diagnostic: E04xx]
+- `REQ-0134`: Hierarchical Control Structure (HCS) AST Extraction & Controller-Process Topology [Diagnostic: E04xx]
+- `REQ-0135`: STPA Minimal Hazard Cut-Sets & Unsafe Control Action Minimization (NP-4) [NP-4 (STPA Minimal Hazard Cut-Sets)] [Diagnostic: E04xx]
+- `REQ-0136`: STPA Combinatorial Unsafe Control Action Tensor Expansion & Pruning [Directive 2 (Bounded Work-Stealing)] [Diagnostic: E04xx]
+- `REQ-0137`: Automated Boolean Safety Invariant Synthesis from Hazard Scenarios [Diagnostic: E04xx]
+- `REQ-0138`: Structured `ConstraintExpr` AST Invariant Generation with De Morgan Normalization [Diagnostic: E04xx]
+- `REQ-0139`: FMECA Failure Mode Synthesis across 4 Universal Dimensions (Interface, State, Action, Resource) [Diagnostic: E04xx]
+- `REQ-0140`: Quantitative Risk Priority Number (RPN) Integer Scoring Engine ($RPN = S \times O \times D$) [Diagnostic: E04xx]
+- `REQ-0141`: Run-Time Assurance (RTA) Simplex/Duplex Architecture Pattern Synthesis [Diagnostic: E04xx]
+- `REQ-0142`: Smooth State Transition Blending & $C^1$-Continuity Bounds [Diagnostic: E04xx]
+- `REQ-0143`: Control Barrier Function (CBF) Forward Invariance Contract Formulation [Diagnostic: E04xx]
+- `REQ-0144`: Declarative Pluggable Regulatory Safety Profiles Engine [Diagnostic: E04xx]
 
 ### Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts (`REQ-0145` -- `REQ-0158`) [14 items]
-- `REQ-0145`: Automated $N^2$ System Interface Matrix Construction & Topology Indexing
-- `REQ-0146`: $N^2$ Interface Symmetry & Directed Flow Antisymmetry Verification
-- `REQ-0147`: Structural Allocation, Interconnect Clustering & Logical Channel Multiplexing (NP-2)
-- `REQ-0148`: Master Signal Flow Dictionary: Canonical 10-Column Structural Specification
-- `REQ-0149`: Port Definition Rosters & Hierarchical Port Type Binding
-- `REQ-0150`: Connection Binding Rosters, Serialization Layout & Bitfield Packing
-- `REQ-0151`: Dangling Port Gate & Unconnected Interface Compile-Time Failure
-- `REQ-0152`: SI Unit Verification in $\mathbb{Q}^7$ Rational Metric Space across Signal Flows
-- `REQ-0153`: Failsafe Default Value Domain Validity & Boundary Assertion Gate
-- `REQ-0154`: Logical Channel Bandwidth Utilization & Capacity Budgeting
-- `REQ-0155`: Rate Monotonic Scheduling (RMS) Schedulability Bound Verification
-- `REQ-0156`: Earliest Deadline First (EDF) Dynamic Schedulability Verification
-- `REQ-0157`: Protocol Framing Overhead Calculation & Header Serialization Penalty
-- `REQ-0158`: Worst-Case Execution Time (WCET) Propagation across Interconnect Latency Paths
+- `REQ-0145`: Automated $N^2$ System Interface Matrix Construction & Topology Indexing [Diagnostic: E05xx]
+- `REQ-0146`: $N^2$ Interface Symmetry & Directed Flow Antisymmetry Verification [Diagnostic: E0220]
+- `REQ-0147`: Structural Allocation, Interconnect Clustering & Logical Channel Multiplexing (NP-2) [NP-2 (Structural Allocation)] [Diagnostic: E05xx]
+- `REQ-0148`: Master Signal Flow Dictionary: Canonical 10-Column Structural Specification [Diagnostic: E05xx]
+- `REQ-0149`: Port Definition Rosters & Hierarchical Port Type Binding [Diagnostic: E05xx]
+- `REQ-0150`: Connection Binding Rosters, Serialization Layout & Bitfield Packing [Diagnostic: E05xx]
+- `REQ-0151`: Dangling Port Gate & Unconnected Interface Compile-Time Failure [Diagnostic: E0220]
+- `REQ-0152`: SI Unit Verification in $\mathbb{Q}^7$ Rational Metric Space across Signal Flows [Diagnostic: E0301]
+- `REQ-0153`: Failsafe Default Value Domain Validity & Boundary Assertion Gate [Diagnostic: E0440]
+- `REQ-0154`: Logical Channel Bandwidth Utilization & Capacity Budgeting [Diagnostic: E0442]
+- `REQ-0155`: Rate Monotonic Scheduling (RMS) Schedulability Bound Verification [Diagnostic: E0443]
+- `REQ-0156`: Earliest Deadline First (EDF) Dynamic Schedulability Verification [Diagnostic: E0444]
+- `REQ-0157`: Protocol Framing Overhead Calculation & Header Serialization Penalty [Diagnostic: E05xx]
+- `REQ-0158`: Worst-Case Execution Time (WCET) Propagation across Interconnect Latency Paths [Diagnostic: E0451]
 
 ### Subsystem 9: Downstream Specification Projections (`REQ-0159` -- `REQ-0174`) [16 items]
-- `REQ-0159`: Deterministic RFC 4122 UUIDv5 Document Anchors for Specification Artifacts
-- `REQ-0160`: Bottom-Up Feature-First Dependency Ordering & DAG Scheduling
-- `REQ-0161`: Epics Projection: Structural Decomposition & Subsystem Capability Mapping
-- `REQ-0162`: Epics Projection: System Architecture Diagrams & Streaming Artifact Sink Interface
-- `REQ-0163`: Epics Projection: High-Level Macro Statechart Diagrams & Operational Scenarios
-- `REQ-0164`: Feature Projection: 3-Layer Definition of Done Mandatory Structural Enforcement
-- `REQ-0165`: Feature Layer 1: Domain State, Data Models & Primitive Structural Typing
-- `REQ-0166`: Feature Layer 2: Logic, Dynamic Operations & Hierarchical State Machines
-- `REQ-0167`: Feature Layer 3: Presentation, Visual Layout & Machine Interface Binding
-- `REQ-0168`: Feature Class Diagram Emission with Ancestor Containment & No Isolated Classes
-- `REQ-0169`: User Stories Projection: Deterministic Gherkin BDD Synthesis from AST Constraints
-- `REQ-0170`: User Story BDD Patterns: Pattern A, Pattern B, and Pattern C Synthesis
-- `REQ-0171`: User Stories Projection: Boundary Value Analysis (BVA) Scenario Synthesis
-- `REQ-0172`: Use Cases Projection: Operational Flows, Primary Path & Step Traversal
-- `REQ-0173`: Use Cases Projection: Alternate Flows & Exception Handler Branching
-- `REQ-0174`: Bidirectional Specification Realization Matrix Synthesis & Markdown Tasklists
+- `REQ-0159`: Deterministic RFC 4122 UUIDv5 Document Anchors for Specification Artifacts [Directive 1 (Deterministic UUIDv5)] [Diagnostic: E05xx]
+- `REQ-0160`: Bottom-Up Feature-First Dependency Ordering & DAG Scheduling [Diagnostic: E0203]
+- `REQ-0161`: Epics Projection: Structural Decomposition & Subsystem Capability Mapping [Diagnostic: E05xx]
+- `REQ-0162`: Epics Projection: System Architecture Diagrams & Streaming Artifact Sink Interface [Diagnostic: E05xx]
+- `REQ-0163`: Epics Projection: High-Level Macro Statechart Diagrams & Operational Scenarios [Diagnostic: E05xx]
+- `REQ-0164`: Feature Projection: 3-Layer Definition of Done Mandatory Structural Enforcement [Diagnostic: E0230]
+- `REQ-0165`: Feature Layer 1: Domain State, Data Models & Primitive Structural Typing [Diagnostic: E05xx]
+- `REQ-0166`: Feature Layer 2: Logic, Dynamic Operations & Hierarchical State Machines [Directive 1 (Deterministic UUIDv5)] [Diagnostic: E05xx]
+- `REQ-0167`: Feature Layer 3: Presentation, Visual Layout & Machine Interface Binding [Diagnostic: E05xx]
+- `REQ-0168`: Feature Class Diagram Emission with Ancestor Containment & No Isolated Classes [Diagnostic: E0231]
+- `REQ-0169`: User Stories Projection: Deterministic Gherkin BDD Synthesis from AST Constraints [Diagnostic: E05xx]
+- `REQ-0170`: User Story BDD Patterns: Pattern A, Pattern B, and Pattern C Synthesis [Diagnostic: E05xx]
+- `REQ-0171`: User Stories Projection: Boundary Value Analysis (BVA) Scenario Synthesis [Diagnostic: E05xx]
+- `REQ-0172`: Use Cases Projection: Operational Flows, Primary Path & Step Traversal [Diagnostic: E05xx]
+- `REQ-0173`: Use Cases Projection: Alternate Flows & Exception Handler Branching [Directive 1 (Deterministic UUIDv5)] [Diagnostic: E0232]
+- `REQ-0174`: Downstream Projections: Bidirectional Realization Matrices, STPA Matrices & ICD Tables Synthesis [Diagnostic: E05xx]
 
 ### Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings (`REQ-0175` -- `REQ-0189`) [15 items]
-- `REQ-0175`: LUMI Intermediate Representation (LUMI IR): SSA Basic Blocks & Control Flow Graph
-- `REQ-0176`: LUMI IR Memory Semantics: Typed Allocations, Immutability & Value Semantics
-- `REQ-0177`: Streaming Artifact Sink Interface & Bounded Memory IO Emission
-- `REQ-0178`: Manifest-Driven File Persistence (`CodegenManifest`) with XXH3 Content Fingerprinting
-- `REQ-0179`: Continuous-Time Numerical Solvers: Discrete Fixed-Step Euler Integration
-- `REQ-0180`: Continuous-Time Numerical Solvers: 4th-Order Runge-Kutta (RK4) Integration Engine
-- `REQ-0181`: Linear State-Space Matrix Evaluation ($\dot{x} = Ax + Bu, y = Cx + Du$)
-- `REQ-0182`: ROS2 Node Architecture Emission: Publishers, Subscribers & QoS Profiles
-- `REQ-0183`: OMG DDS IDL Schema Generation & CDR Binary Serialization Codecs
-- `REQ-0184`: Freestanding Zero-Allocation C++20 Header/Source Code Emission
-- `REQ-0185`: High-Integrity Embedded C99 Source Code Generation with Static Memory Layout
-- `REQ-0186`: Freestanding RTOS Memory-Mapped Register Header Generation
-- `REQ-0187`: Formal Verification Script Emission: Proof Obligation Synthesis (`.m`)
-- `REQ-0188`: SMT-LIB2 / Z3 First-Order Constraint Encoding & Proof Framework Generation
-- `REQ-0189`: Atomic In-Place File Overwrite & APFS/NTFS Metadata Lock Serialization Prevention
+- `REQ-0175`: LUMI Intermediate Representation (LUMI IR): SSA Basic Blocks & Control Flow Graph [Diagnostic: E05xx]
+- `REQ-0176`: LUMI IR Memory Semantics: Typed Allocations, Immutability & Value Semantics [Diagnostic: E05xx]
+- `REQ-0177`: Streaming Artifact Sink Interface & Bounded Memory IO Emission [Diagnostic: E05xx]
+- `REQ-0178`: Manifest-Driven File Persistence (`CodegenManifest`) with XXH3 Content Fingerprinting [Diagnostic: E05xx]
+- `REQ-0179`: Continuous-Time Numerical Solvers: Discrete Fixed-Step Euler Integration [Diagnostic: E05xx]
+- `REQ-0180`: Register Allocation & SSA Basic Block Scheduling in LUMI IR (NP-7) [NP-7 (LUMI IR Register Allocation)] [Diagnostic: E05xx]
+- `REQ-0181`: Linear State-Space Matrix Evaluation & Higher-Order Numerical Solvers (RK4) [Diagnostic: E05xx]
+- `REQ-0182`: ROS2 Node Architecture Emission: Publishers, Subscribers & QoS Profiles [Diagnostic: E05xx]
+- `REQ-0183`: OMG DDS IDL Schema Generation & CDR Binary Serialization Codecs [Diagnostic: E05xx]
+- `REQ-0184`: Freestanding Zero-Allocation C++20 Header/Source Code Emission [Diagnostic: E05xx]
+- `REQ-0185`: High-Integrity Embedded MISRA C99 Source Code Generation with Static Memory Layout [Diagnostic: E05xx]
+- `REQ-0186`: Freestanding RTOS Memory-Mapped Register Header Generation [Diagnostic: E05xx]
+- `REQ-0187`: Formal Verification Script Emission: Proof Obligation Synthesis (`.m`) [Diagnostic: E05xx]
+- `REQ-0188`: SMT-LIB2 / Z3 First-Order Constraint Encoding & Proof Framework Generation [Diagnostic: E05xx]
+- `REQ-0189`: Atomic In-Place File Overwrite & Filesystem Metadata Lock Serialization Prevention [Diagnostic: E05xx]
 
 ### Subsystem 11: Standardized Compiler Diagnostic Error Catalog (`REQ-0190` -- `REQ-0194`) [5 items]
-- `REQ-0190`: Rich Source-Mapped Diagnostic Reporting with Byte Spans, Synchronization Tokens & Error Accumulation
-- `REQ-0191`: Standardized Compiler Diagnostic Taxonomy, Source-Mapping & Recovery Architecture
-- `REQ-0192`: Bidirectional Reverse-Sync Prose Gate: Tri-State Reconciliation & Prose Protection
-- `REQ-0193`: Non-Destructive Markdown Parser & Memory-Mapped AST Mutation Engine
-- `REQ-0194`: Artifact Drift Detection & Zero-Divergence Bijective Model Synchronization
+- `REQ-0190`: Rich Source-Mapped Diagnostic Reporting with Byte Spans, Synchronization Tokens & Error Accumulation [Diagnostic: E01xx--E05xx]
+- `REQ-0191`: Standardized Compiler Diagnostic Taxonomy, Source-Mapping & Recovery Architecture [Diagnostic: E0100--E0599]
+- `REQ-0192`: Bidirectional Reverse-Sync Prose Gate: Tri-State Reconciliation & Prose Protection [Diagnostic: E0502]
+- `REQ-0193`: Non-Destructive Markdown Parser & Memory-Mapped AST Mutation Engine [Diagnostic: E01xx--E05xx]
+- `REQ-0194`: Artifact Drift Detection & Zero-Divergence Bijective Model Synchronization [Diagnostic: E01xx--E05xx]
 
 ### Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation (`REQ-0195` -- `REQ-0199`) [5 items]
-- `REQ-0195`: Unified Headless CLI Architecture & Deterministic Subcommand Interface
-- `REQ-0196`: Performance Assurance Gates: Execution Latency (< 25 ms) & Peak Memory RSS (< 100 MB RSS)
-- `REQ-0197`: NP-8: Formal Proof Obligations & Invariant Contract Satisfiability via Decidable SMT Fragments
-- `REQ-0198`: Property-Based Fuzzing & Generative Metamodel Mutation for AST Invariant Preservation
-- `REQ-0199`: 4-Pass Semantic Parity Verification Framework (Frontmatter, Graph Topology, Tables, Numerical Tolerances)
+- `REQ-0195`: Unified Headless CLI Architecture & Deterministic Subcommand Interface [Diagnostic: E01xx--E05xx]
+- `REQ-0196`: Performance Assurance Gates: Execution Latency (< 25 ms) & Peak Memory RSS (< 100 MB RSS) [Directive 5 (Panic-Free Release Isolation)] [Diagnostic: E01xx--E05xx]
+- `REQ-0197`: NP-8: Formal Proof Obligations & Invariant Contract Satisfiability via Decidable SMT Fragments [NP-8 (SMT Proof Obligations)] [Diagnostic: E0406]
+- `REQ-0198`: Property-Based Fuzzing & Generative Metamodel Mutation for AST Invariant Preservation [Diagnostic: E01xx--E05xx]
+- `REQ-0199`: 4-Pass Semantic Parity Verification Framework (Frontmatter, Graph Topology, Tables, Numerical Tolerances) [Diagnostic: E01xx--E05xx]
 
 ---
 
@@ -470,7 +488,7 @@ The swarm must process all 199 requirements across their respective Subsystems:
 The swarm operates in five strictly sequenced phases:
 
 ### Phase 1: Pre-Execution Verification & Scaffolding
-1. Verify `REQUIREMENTS_SKELETON.md` and `docs/requirements/items/` exist at repository root and contain exactly 199 requirement definitions (`REQ-0001` through `REQ-0199`).
+1. Verify strictly `docs/requirements/items/` exists at repository root and contains exactly 199 requirement definitions (`REQ-0001.md` through `REQ-0199.md`).
 2. Verify GitHub CLI connectivity:
    ```bash
    gh auth status
@@ -481,28 +499,28 @@ The swarm operates in five strictly sequenced phases:
    mkdir -p .teamwork/drafts docs/requirements
    ```
 
-### Phase 2: Parallel Subsystem Elaboration
-1. The Orchestrator assigns Subsystem batches to Subsystem Workers.
-2. Each worker expands its assigned requirements using the 4-part template.
-3. Workers apply the 5 Architectural Directives to their designated requirements.
-4. Workers write results to `.teamwork/drafts/subsystem_01.md` through `.teamwork/drafts/subsystem_12.md`.
+### Phase 2: Single-Item Context-Isolated Elaboration (199 Dispatches)
+1. The Orchestrator iterates through `REQ-0001` to `REQ-0199`, dispatching a dedicated, context-isolated subagent for each requirement (strictly 1 item per dispatch).
+2. Each subagent ingests its designated `docs/requirements/items/REQ-XXXX.md`, applies the 5 Architectural Directives, and expands the requirement into the canonical 4-part contract schema.
+3. Subagents write individual results to `.teamwork/drafts/REQ-XXXX_elaborated.md`.
 
 ### Phase 3: Adversarial Clean-Room & Mathematical Audit
-1. The Auditor reviews each drafted Subsystem file.
+1. The Auditor reviews each drafted requirement file (`.teamwork/drafts/REQ-XXXX_elaborated.md`).
 2. Audit checks:
-   - Contains exactly the designated requirement IDs.
-   - All 4 template sections present (`Description`, `Mathematical / Logical Invariant`, `Acceptance Criteria`, `Implementation Constraint`).
-   - Zero real-world domain concepts or mock data.
+   - Canonical 4-part schema complete (`Normative Statement`, `Formal Invariant`, `Computational Complexity & Algorithmic Bounds`, `Verification & Conformance Criteria`).
+   - Zero real-world domain concepts or mock data (abstract MBSE placeholders only).
    - Zero occurrences of "UUIDv7" (Deterministic UUIDv5 confirmed).
-   - Zero occurrences of unbounded thread spawning.
-   - Display math in isolated `$$` fences on dedicated lines; multi-line equations in `\begin{aligned}`.
-   - Zero Unicode em dashes.
-3. If an audit fails, the Auditor returns actionable remediation items to the respective Subsystem Worker.
-4. Once all 12 Subsystems pass, the Auditor certifies the drafts for publication.
+   - Zero occurrences of unbounded thread spawning (bounded work-stealing confirmed).
+   - Zero third-party crate leaks and zero concrete compiler module leaks.
+   - Display math enclosed in isolated `$$` fences on dedicated lines; multi-line equations in `\begin{aligned}`; zero math delimiters in tables.
+   - Zero Unicode em dashes (ASCII `--` only).
+   - Diagnostic error code assigned within the standardized `E01xx`--`E05xx` taxonomy.
+3. If an audit fails, the Auditor returns actionable remediation items to a fresh single-item worker.
+4. Once all 199 requirement drafts pass, the Auditor certifies the items for publication.
 
 ### Phase 4: GitHub Issue Creation & Tracking
 1. The GitHub Backlog Publisher processes each certified requirement from `REQ-0001` to `REQ-0199`.
-2. For each requirement, write the elaborated 4-part Markdown body to a dedicated temporary file (e.g., `.teamwork/drafts/REQ-XXXX_body.md`) and execute with `--body-file` to prevent bash escaping errors on KaTeX syntax, quotes, and multi-line formatting:
+2. For each requirement, prepare the body file `.teamwork/drafts/REQ-XXXX_body.md` and execute with `--body-file` to prevent shell escaping corruption:
    ```bash
    gh issue create \
      --title "[REQ-XXXX] <Requirement Title>" \
@@ -521,5 +539,5 @@ The swarm operates in five strictly sequenced phases:
 3. Verifies:
    - Exactly 199 requirements documented and linked.
    - All GitHub issues verified on remote.
-   - 0 domain concepts, 0 mock data, 0 Unicode em dashes.
-4. Emits the final completion report to the user.
+   - 0 domain concepts, 0 mock data, 0 Unicode em dashes, 0 third-party crate leaks, 0 unisolated `$$`.
+4. Emits the final completion report.
