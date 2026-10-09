@@ -125,7 +125,7 @@ Directives:
 4. Enforce zero crate names (`lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::*`).
 5. Enforce zero Unicode em dashes (ASCII `--` or `-` exclusively).
 6. Write the completed, verified specification to `docs/requirements/final/REQ-XXXX.md`.
-7. Mandatory Verification Gate: Run `node scripts/validate_requirement.js docs/requirements/final/REQ-XXXX.md` and ensure PASS exit code 0.
+7. Mandatory Verification Gate: Run `cargo run -p validator -- docs/requirements/final/REQ-XXXX.md` and ensure PASS exit code 0.
 
 PROCEED
 ```
