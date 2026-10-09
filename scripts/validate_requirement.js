@@ -90,7 +90,7 @@ function validateFile(filePath) {
     }
   }
 
-  // 5. Validate Inline Math ($ ... $)
+  // 5. Validate Inline Math ($`...`$ or $...$)
   const lines = content.split('\n');
   let inDisplay = false;
   for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
@@ -101,13 +101,30 @@ function validateFile(filePath) {
     }
     if (inDisplay) continue;
 
-    const segments = line.split('$');
+    // Check $`...`$ matches first
+    const backtickMathRegex = /\$`([^`]+)`\$/g;
+    let bMatch;
+    while ((bMatch = backtickMathRegex.exec(line)) !== null) {
+      const inline = bMatch[1].trim();
+      if (!inline) continue;
+      if (/\\[nr]\b/.test(inline)) {
+        errors.push(`Line ${lineIdx + 1} inline math contains raw \\n or \\r command: $${inline}$`);
+      }
+      try {
+        katex.renderToString(inline, { displayMode: false, throwOnError: true });
+      } catch (e) {
+        errors.push(`Line ${lineIdx + 1} inline math KaTeX error: ${e.message.split('\n')[0]} in "$${inline}$"`);
+      }
+    }
+
+    // Check standard $...$ if present (without backticks)
+    const lineWithoutBacktickMath = line.replace(/\$`[^`]+`\$/g, '');
+    const segments = lineWithoutBacktickMath.split('$');
     if (segments.length > 1 && segments.length % 2 === 1) {
       for (let s = 1; s < segments.length; s += 2) {
         const inline = segments[s].trim();
-        if (!inline) continue;
+        if (!inline || inline.startsWith('`')) continue;
 
-        // Check for raw \n or \r
         if (/\\[nr]\b/.test(inline)) {
           errors.push(`Line ${lineIdx + 1} inline math contains raw \\n or \\r command: $${inline}$`);
         }
