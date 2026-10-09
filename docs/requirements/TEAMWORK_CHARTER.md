@@ -4,8 +4,8 @@
 
 - **System Identity:** Sovereign DEAP Compiler (`deap-compiler`).
 - **Workspace Context:** Clean-room repository workspace (`deap-compiler-spec` seed source).
-- **Seed Input:** Strictly `docs/requirements/items/REQ-0001.md` through `REQ-0199.md` (199 modular requirement items covering Subsystems 1 through 12).
-- **Core Mission:** Deploy an autonomous multi-agent swarm via `/teamwork-preview` to ingest the 199 modular requirement items (`REQ-0001` through `REQ-0199`), expand each into an exhaustive, contract-grade IEEE 29148 specification block using the mandatory 4-part Contract Schema, apply the 5 Non-Negotiable Architectural Directives, audit each draft for zero domain contamination and mathematical rigor, and publish all 199 requirements as formal tracked issues on GitHub via the `gh` CLI using 199 private, context-isolated subagent dispatches (strictly 1 requirement item per dispatch).
+- **Seed Input:** Strictly `docs/requirements/seeds/REQ-0001.md` through `REQ-0199.md` (199 modular requirement items covering Subsystems 1 through 12).
+- **Core Mission:** Deploy an autonomous multi-agent swarm via `/teamwork-preview` to ingest the 199 modular seed requirement items (`REQ-0001` through `REQ-0199`) from `docs/requirements/seeds/`, expand each into an exhaustive, contract-grade specification block using the mandatory 4-part Contract Schema, apply the 5 Non-Negotiable Architectural Directives, audit each specification for zero domain contamination and mathematical rigor, save the final specification to `docs/requirements/final/REQ-XXXX.md`, and publish all 199 requirements as formal tracked issues on GitHub via the `gh` CLI using 199 private, context-isolated subagent dispatches (strictly 1 requirement item per dispatch).
 - **Phase Boundary:** Specification formalization and backlog tracking ONLY. Writing implementation code, creating crates, or generating mock implementations is strictly prohibited during this phase.
 
 ---
@@ -177,8 +177,8 @@ flowchart TD
     W_ItemDots["...<br/>(Independent Ephemeral Workers)"]
     W_Item199["Subagent REQ-0199<br/>(Scope: 1 Item)"]
     Auditor["Role 3: Adversarial Clean-Room Auditor<br/>(Directives, KaTeX Math & Purity Verification)"]
+    FinalCatalog["docs/requirements/final/REQ-*.md<br/>(199 Final Modular Specifications)"]
     Publisher["Role 4: GitHub Backlog Publisher<br/>(gh issue create --body-file)"]
-    MasterSpec["docs/requirements/REQUIREMENTS.md<br/>(Final Sovereign Backlog SSOT)"]
 
     Orchestrator --> Queue
     Queue --> W_Item1
@@ -189,20 +189,20 @@ flowchart TD
     W_Item2 --> Auditor
     W_ItemDots --> Auditor
     W_Item199 --> Auditor
-    Auditor -->|Passed Individual Drafts| Publisher
-    Publisher --> MasterSpec
+    Auditor -->|Passed Final Specifications| FinalCatalog
+    FinalCatalog --> Publisher
 ```
 
 ### Role 1: Swarm Lead Orchestrator (Single-Item Dispatch & Ledger Tracking)
-- **Responsibility:** Ingests modular requirement items directly from `docs/requirements/items/`, dispatches each requirement individually as an isolated subagent task (`REQ-0001` through `REQ-0199`), tracks completion status in `.teamwork/status_ledger.json`, coordinates quality handoffs, and compiles the final `REQUIREMENTS.md`.
-- **Constraint:** Does not elaborate requirements directly; coordinates single-item dispatches and enforces quality gates.
+- **Responsibility:** Ingests seed requirement items from `docs/requirements/seeds/`, dispatches each requirement individually as an isolated subagent task (`REQ-0001` through `REQ-0199`), tracks completion status in `.teamwork/status_ledger.json`, coordinates quality handoffs, and ensures all 199 final specifications are delivered to `docs/requirements/final/`.
+- **Constraint:** Does not elaborate requirements directly; coordinates single-item dispatches and enforces quality gates. Zero monolithic files shall be assembled.
 
 ### Role 2: Single-Item Specification Engineers (Parallel Context-Isolated Subagents)
-- **Responsibility:** Ingest assigned single requirement item (`REQ-XXXX.md`) from `docs/requirements/items/`, apply the 5 Non-Negotiable Architectural Directives, and write out fully expanded 4-part specification blocks into individual draft files (`.teamwork/drafts/REQ-XXXX_elaborated.md`).
+- **Responsibility:** Ingest assigned single seed item (`REQ-XXXX.md`) from `docs/requirements/seeds/` without modifying it, apply the 5 Non-Negotiable Architectural Directives, and write out fully expanded 4-part specification blocks into `docs/requirements/final/REQ-XXXX.md`.
 - **Scope Invariant:** Strictly 1 requirement per subagent context. Batching multiple requirements into a single subagent dispatch is strictly prohibited.
 
 ### Role 3: Adversarial Clean-Room & Mathematical Auditor
-- **Responsibility:** Audits each individual draft `.teamwork/drafts/REQ-XXXX_elaborated.md` before publication. Rejects any draft with:
+- **Responsibility:** Audits each individual final specification `docs/requirements/final/REQ-XXXX.md` before publication. Rejects any specification with:
   - Domain concept leaks (only abstract placeholders permitted: `Package_0`, `Classifier_Alpha`, etc.).
   - Mock data or concrete domain models.
   - "UUIDv7" references (must be Deterministic UUIDv5).
@@ -212,7 +212,30 @@ flowchart TD
   - Third-party crate leaks or concrete compiler module leaks (technology-neutral systems engineering primitives exclusively).
 
 ### Role 4: GitHub Backlog Publisher & Traceability Specialist
-- **Responsibility:** Takes approved, audited requirement drafts from `.teamwork/drafts/REQ-XXXX_elaborated.md` and creates formal GitHub issues via `gh issue create` using `--body-file`. Records issue numbers, titles, and URLs in `.teamwork/issue_manifest.json`, ensuring idempotent publication and verified issue creation.
+- **Responsibility:** Takes approved, audited final requirements from `docs/requirements/final/REQ-XXXX.md` and creates formal GitHub issues via `gh issue create` using `--body-file`. Records issue numbers, titles, and URLs in `.teamwork/issue_manifest.json`, ensuring idempotent publication and verified issue creation.
+
+### Canonical Subagent Dispatch Prompt Template
+
+```text
+Execute `view_file` on `docs/requirements/STREAMLINED_CHARTER.md` as your very first step before taking any action.
+
+Role: Single-Item Requirement Finalization Worker
+Seed Input: docs/requirements/seeds/REQ-XXXX.md
+Final Output: docs/requirements/final/REQ-XXXX.md
+
+Directives:
+1. Ingest strictly `docs/requirements/seeds/REQ-XXXX.md` using workspace-relative paths. Do not modify the seed file.
+2. Elaborate the specification into the mandatory 4-part Contract Schema:
+   - **Normative Statement**: Positive RFC 2119 prescriptive specification ("shall" / "must").
+   - **Formal Invariant**: KaTeX display math on isolated $$ lines (\begin{aligned} for multi-line).
+   - **Computational Complexity & Algorithmic Bounds**: Explicit complexity class (P, NP-complete, PSPACE) and asymptotic bounds (O(1), O(N), O(V+E), NP-1..NP-8 bindings).
+   - **Verification & Conformance Criteria**: Deterministic verification check with diagnostic error code binding (E01xx--E05xx per REQ-0191).
+3. Enforce zero crate names (`lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::*`).
+4. Enforce zero Unicode em dashes (ASCII `--` or `-` exclusively).
+5. Write the completed, verified specification to `docs/requirements/final/REQ-XXXX.md`.
+
+PROCEED
+```
 
 ---
 
@@ -488,24 +511,24 @@ The compiler diagnostic architecture enforces a partitioned 5-tier diagnostic co
 The swarm operates in five strictly sequenced phases:
 
 ### Phase 1: Pre-Execution Verification & Scaffolding
-1. Verify strictly `docs/requirements/items/` exists at repository root and contains exactly 199 requirement definitions (`REQ-0001.md` through `REQ-0199.md`).
+1. Verify strictly `docs/requirements/seeds/` exists at repository root and contains exactly 199 seed requirement definitions (`REQ-0001.md` through `REQ-0199.md`).
 2. Verify GitHub CLI connectivity:
    ```bash
    gh auth status
    gh issue list --limit 5
    ```
-3. Initialize the teamwork scratch workspace:
+3. Initialize the final requirements directory:
    ```bash
-   mkdir -p .teamwork/drafts docs/requirements
+   mkdir -p docs/requirements/final
    ```
 
 ### Phase 2: Single-Item Context-Isolated Elaboration (199 Dispatches)
 1. The Orchestrator iterates through `REQ-0001` to `REQ-0199`, dispatching a dedicated, context-isolated subagent for each requirement (strictly 1 item per dispatch).
-2. Each subagent ingests its designated `docs/requirements/items/REQ-XXXX.md`, applies the 5 Architectural Directives, and expands the requirement into the canonical 4-part contract schema.
-3. Subagents write individual results to `.teamwork/drafts/REQ-XXXX_elaborated.md`.
+2. Each subagent ingests its designated seed item `docs/requirements/seeds/REQ-XXXX.md` (read-only), applies the 5 Architectural Directives, and expands the requirement into the canonical 4-part contract schema.
+3. Subagents write individual verified specifications to `docs/requirements/final/REQ-XXXX.md`.
 
 ### Phase 3: Adversarial Clean-Room & Mathematical Audit
-1. The Auditor reviews each drafted requirement file (`.teamwork/drafts/REQ-XXXX_elaborated.md`).
+1. The Auditor reviews each finalized requirement file (`docs/requirements/final/REQ-XXXX.md`).
 2. Audit checks:
    - Canonical 4-part schema complete (`Normative Statement`, `Formal Invariant`, `Computational Complexity & Algorithmic Bounds`, `Verification & Conformance Criteria`).
    - Zero real-world domain concepts or mock data (abstract MBSE placeholders only).
@@ -515,29 +538,28 @@ The swarm operates in five strictly sequenced phases:
    - Display math enclosed in isolated `$$` fences on dedicated lines; multi-line equations in `\begin{aligned}`; zero math delimiters in tables.
    - Zero Unicode em dashes (ASCII `--` only).
    - Diagnostic error code assigned within the standardized `E01xx`--`E05xx` taxonomy.
+   - Seed files in `docs/requirements/seeds/` remain 100% unaltered.
 3. If an audit fails, the Auditor returns actionable remediation items to a fresh single-item worker.
-4. Once all 199 requirement drafts pass, the Auditor certifies the items for publication.
+4. Once all 199 requirement files pass, the Auditor certifies the items for publication.
 
 ### Phase 4: GitHub Issue Creation & Tracking
 1. The GitHub Backlog Publisher processes each certified requirement from `REQ-0001` to `REQ-0199`.
-2. For each requirement, prepare the body file `.teamwork/drafts/REQ-XXXX_body.md` and execute with `--body-file` to prevent shell escaping corruption:
+2. For each requirement, register the issue on the GitHub issue tracker directly from `docs/requirements/final/REQ-XXXX.md`:
    ```bash
    gh issue create \
      --title "[REQ-XXXX] <Requirement Title>" \
-     --body-file ".teamwork/drafts/REQ-XXXX_body.md" \
-     --label "requirement,subsystem-<N>,clean-room"
+     --body-file "docs/requirements/final/REQ-XXXX.md" \
+     --label "requirement,clean-room"
    ```
 3. Verifies issue creation via `gh issue view <issue-id>`.
 4. Appends the resulting Issue ID, Title, and URL to `.teamwork/issue_manifest.json`.
 
-### Phase 5: Master Backlog Assembly & Verification
-1. The Orchestrator reads all audited requirement blocks and their live GitHub issue IDs from `.teamwork/issue_manifest.json`.
-2. Assembles the final, authoritative `docs/requirements/REQUIREMENTS.md` containing:
-   - Executive Architecture Statement.
-   - Master Traceability Table (Requirement ID, Title, Subsystem, Live GitHub Issue Link).
-   - All 199 elaborated requirement blocks.
+### Phase 5: Backlog Parity Verification & Audit
+1. The Orchestrator verifies that all 199 final requirement files in `docs/requirements/final/` pass clean-room verification.
+2. Verifies 0-byte diff parity across downstream and upstream repositories.
 3. Verifies:
-   - Exactly 199 requirements documented and linked.
+   - Exactly 199 final requirements documented in `docs/requirements/final/`.
    - All GitHub issues verified on remote.
    - 0 domain concepts, 0 mock data, 0 Unicode em dashes, 0 third-party crate leaks, 0 unisolated `$$`.
+   - Zero singular or monolithic files assembled (all requirements remain modular).
 4. Emits the final completion report.
