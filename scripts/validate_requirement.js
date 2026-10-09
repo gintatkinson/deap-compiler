@@ -65,8 +65,28 @@ function validateFile(filePath) {
     errors.push('Unicode em dash (—) or en dash (–) detected; use ASCII "--" or "-" exclusively.');
   }
 
-  // 4. Validate Display Math ($$ ... $$)
-  const displayParts = content.split('$$');
+  // 4. Validate Display Math (```math ... ``` or $$ ... $$)
+  let blockNum = 1;
+  const mathBlockRegex = /```math\s*\n([\s\S]*?)\n```/g;
+  const contentWithoutMathBlocks = content.replace(mathBlockRegex, (match, math) => {
+    const trimmed = math.trim();
+    if (!trimmed) {
+      errors.push(`Display math block ${blockNum} is empty.`);
+    } else {
+      if (/\\[nr]\b/.test(trimmed)) {
+        errors.push(`Display math block ${blockNum} contains raw \\n or \\r LaTeX command.`);
+      }
+      try {
+        katex.renderToString(trimmed, { displayMode: true, throwOnError: true });
+      } catch (e) {
+        errors.push(`Display math block ${blockNum} KaTeX error: ${e.message.split('\n')[0]}`);
+      }
+    }
+    blockNum++;
+    return '';
+  });
+
+  const displayParts = contentWithoutMathBlocks.split('$$');
   if (displayParts.length > 1 && displayParts.length % 2 === 0) {
     errors.push('Unbalanced display math delimiters ($$).');
   }
@@ -74,20 +94,21 @@ function validateFile(filePath) {
   for (let i = 1; i < displayParts.length; i += 2) {
     const math = displayParts[i].trim();
     if (!math) {
-      errors.push(`Display math block ${(i + 1) / 2} is empty.`);
+      errors.push(`Display math block ${blockNum} is empty.`);
       continue;
     }
 
     // Check for raw \n or \r used as LaTeX macro
     if (/\\[nr]\b/.test(math)) {
-      errors.push(`Display math block ${(i + 1) / 2} contains raw \\n or \\r LaTeX command.`);
+      errors.push(`Display math block ${blockNum} contains raw \\n or \\r LaTeX command.`);
     }
 
     try {
       katex.renderToString(math, { displayMode: true, throwOnError: true });
     } catch (e) {
-      errors.push(`Display math block ${(i + 1) / 2} KaTeX error: ${e.message.split('\n')[0]}`);
+      errors.push(`Display math block ${blockNum} KaTeX error: ${e.message.split('\n')[0]}`);
     }
+    blockNum++;
   }
 
   // 5. Validate Inline Math ($`...`$ or $...$)
@@ -95,7 +116,7 @@ function validateFile(filePath) {
   let inDisplay = false;
   for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
     const line = lines[lineIdx];
-    if (line.trim().startsWith('$$')) {
+    if (line.trim().startsWith('$$') || line.trim().startsWith('```')) {
       inDisplay = !inDisplay;
       continue;
     }

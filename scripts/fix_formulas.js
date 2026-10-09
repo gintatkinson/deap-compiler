@@ -61,7 +61,14 @@ function normalizeAndFixFile(content, filename) {
     content = content.replace('\\text{Path_0}', '\\text{Path\\_0}');
   }
 
-  // 2. Expand single-line $$...$$ into dedicated 3-line blocks
+  // 2. Fix unescaped underscores in \text{...}
+  for (let p = 0; p < 3; p++) {
+    content = content.replace(/\\text\{([^{}]+)\}/g, (m, t) => {
+      return '\\text{' + t.replace(/(?<!\\)_/g, '\\_') + '}';
+    });
+  }
+
+  // 3. Expand and normalize display math blocks to ```math ... ```
   const rawLines = content.split('\n');
   const expandedLines = [];
   for (let l = 0; l < rawLines.length; l++) {
@@ -69,15 +76,14 @@ function normalizeAndFixFile(content, filename) {
     const trimmed = line.trim();
     if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length > 4) {
       const math = trimmed.slice(2, -2).trim();
-      expandedLines.push('$$');
+      expandedLines.push('```math');
       expandedLines.push(math);
-      expandedLines.push('$$');
+      expandedLines.push('```');
     } else {
       expandedLines.push(line);
     }
   }
 
-  // 3. Ensure blank lines before and after every $$ block, and wrap inline math in $`...`$
   const newLines = [];
   let inDisplay = false;
 
@@ -85,17 +91,15 @@ function normalizeAndFixFile(content, filename) {
     const line = expandedLines[i];
     const trimmed = line.trim();
 
-    if (trimmed === '$$') {
+    if (trimmed === '$$' || trimmed === '```math' || (trimmed === '```' && inDisplay)) {
       if (!inDisplay) {
-        // Opening $$
         if (newLines.length > 0 && newLines[newLines.length - 1].trim() !== '') {
           newLines.push('');
         }
-        newLines.push('$$');
+        newLines.push('```math');
         inDisplay = true;
       } else {
-        // Closing $$
-        newLines.push('$$');
+        newLines.push('```');
         inDisplay = false;
         if (i < expandedLines.length - 1 && expandedLines[i+1].trim() !== '') {
           newLines.push('');
@@ -139,13 +143,11 @@ for (const file of files) {
   const fixed = normalizeAndFixFile(content, file);
 
   // Validate Display Math
-  const displayParts = fixed.split('$$');
-  if (displayParts.length % 2 === 0) {
-    allDisplayErrors.push({ file, error: 'Unbalanced $$' });
-  }
-  for (let d = 1; d < displayParts.length; d += 2) {
+  const mathBlockRegex = /```math\s*\n([\s\S]*?)\n```/g;
+  let mbMatch;
+  while ((mbMatch = mathBlockRegex.exec(fixed)) !== null) {
     totalDisplay++;
-    const math = displayParts[d].trim();
+    const math = mbMatch[1].trim();
     try {
       katex.renderToString(math, { displayMode: true, throwOnError: true });
     } catch (e) {
@@ -158,7 +160,7 @@ for (const file of files) {
   let inDisplay = false;
   for (let l = 0; l < lines.length; l++) {
     const line = lines[l];
-    if (line.trim().startsWith('$$')) {
+    if (line.trim().startsWith('$$') || line.trim().startsWith('```')) {
       inDisplay = !inDisplay;
       continue;
     }
