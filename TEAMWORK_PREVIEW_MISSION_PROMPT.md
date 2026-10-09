@@ -1,117 +1,112 @@
-# MISSION SPECIFICATION: DEAP COMPILER 199 CONTRACT-GRADE SPECIFICATIONS
+/teamwork-preview # ORCHESTRATION DIRECTIVE: Context-Isolated Single-Requirement Remediation Swarm (REQ-0001 Through REQ-0199)
 
-## EXECUTION COMMAND
-Execute `/teamwork-preview` with this mission prompt in a fresh session.
+## 1. SWARM CHARTER & SINGLE-ITEM ISOLATION INVARIANT
 
----
+### Orchestrator Mandate
+You are the **Lead Swarm Orchestrator** for the DEAP Compiler specification remediation. You are strictly prohibited from batching multiple requirements into a single worker context.
 
-### MISSION CONTEXT & OBJECTIVE
-- **Workspace:** `/Users/perkunas/jail/deap-compiler`
-- **Remote Repo:** `https://github.com/gintatkinson/deap-compiler`
-- **Target Branch:** `reqs` (branched from `main` at `0196b3b`)
-- **Seed Input:** 199 seed requirement files in `docs/requirements/seeds/REQ-0001.md` through `REQ-0199.md` across Subsystems 1 to 12.
-- **Objective:** Ingest, elaborate, validate, and publish all 199 requirements as contract-grade IEEE 29148 specifications to `docs/requirements/final/REQ-XXXX.md` and publish each as a live GitHub issue on `gintatkinson/deap-compiler` with strict 1:1 numerical alignment (`REQ-0001` <-> Issue #1, ..., `REQ-0199` <-> Issue #199).
+### The Mandatory Single-Item Scope Invariant
+> **Every worker instance MUST target exactly ONE requirement item (`REQ-XXXX`). Subsystem batching is strictly forbidden.**
+> Each of the 199 requirements (`REQ-0001` through `REQ-0199`) is assigned to its own private, context-isolated worker instance that refactors the requirement, validates it via the pure Rust validator, updates its live GitHub issue, audits the rendered HTML, and terminates.
 
 ---
 
-### THE 5 NON-NEGOTIABLE ARCHITECTURAL DIRECTIVES
-1. **Directive 1 (Deterministic UUIDv5 Anchors):**
-   - Strictly prohibit UUIDv7 or timestamp-based UUIDs.
-   - All synthetic topological anchors MUST derive via deterministic RFC 4122 UUIDv5 hashing using `uuid5(NAMESPACE_OID, "REQ-XXXX")` (or topological path $p$).
-2. **Directive 2 (Bounded Work-Stealing Parallelism):**
-   - All multi-threaded analysis, STPA Cartesian products, and AST passes MUST execute on a bounded work-stealing thread pool ($N_{\text{max\_workers}}$).
-   - Unbounded thread spawning is strictly banned.
-3. **Directive 3 (String Interner Zero-Copy Exception):**
-   - Slicing and copying bytes from memory-mapped source buffers into the deduplicated global string interner pool during the initial lexical pass is the SOLE permitted exception to zero-copy memory management (REQ-0036).
-   - All AST nodes thereafter store 32-bit scalar `SymbolId` handles.
-4. **Directive 4 (Synchronization Token Error Recovery):**
-   - Ingestion parsers MUST resynchronize on record/delimiter boundaries, accumulating diagnostics up to $C_{\text{max\_errors}}$ before halting with `E0199`, rather than panicking or terminating on the first fault.
-5. **Directive 5 (Deterministic Non-Panicking Execution & Release Budget):**
-   - Total-function non-panicking execution contract with structured diagnostic propagation (`E0xxx` codes).
-   - Performance budget (< 25 ms, < 100 MB RSS) evaluated exclusively in compiled Release mode (`--release`).
+## 2. REPOSITORY & TOOLING BASELINE
+- **Workspace**: `/Users/perkunas/jail/deap-compiler`
+- **Branch**: `reqs` (origin: `https://github.com/gintatkinson/deap-compiler`)
+- **Strict 1:1 Parity**: Requirement `REQ-XXXX` corresponds strictly to live GitHub Issue `#XXXX`. Gaps, deletions, or new issue creations are prohibited.
+- **Pure Rust Validator (`tools/validator/src/main.rs`)**:
+  - Command: `cargo run -p validator -- docs/requirements/final/REQ-XXXX.md`
+  - Required Literal Headers:
+    - `"Normative Statement"`
+    - `"Formal Invariant"` (singular)
+    - `"Computational Complexity & Algorithmic Bounds"`
+    - `"Verification & Conformance Criteria"`
+    - `"AC-01"` or `"Acceptance Criteria"`
+  - Banned Crates: `lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::`
+  - Word Count: Hard ceiling $\le 1500$ words.
+  - Dashes: ASCII `--` and `-` exclusively (Unicode `\u{2014}` and `\u{2013}` banned).
+- **KaTeX & GitHub Issue Formatting Standards**:
+  - Display Math: Enclosed in isolated `$$ ... $$` or ```` ```math ... ``` ```` blocks.
+  - Inline Math with Underscores: ALWAYS enclosed in `$``...``$` to prevent GFM italics `<em>` corruption and table backslash stripping.
+  - Semantic Brackets: Use Unicode `⟦` (U+27E6) and `⟧` (U+27E7). `\llbracket` and `\rrbracket` are strictly banned.
+  - GitHub Frontmatter: Strip YAML frontmatter (`--- id: REQ-XXXX ... ---`) before updating issues so bodies begin at `# [REQ-XXXX] <Title>`.
 
 ---
 
-### EXACT IEEE 29148 CONTRACT SPECIFICATION FORMAT (EVERY FILE)
-Every file `docs/requirements/final/REQ-XXXX.md` MUST adhere strictly to this schema:
+## 3. ARCHITECTURAL DECOUPLING & DESIGN PURGE DIRECTIVES
 
-```markdown
+Every isolated worker must enforce these four decoupling rules when refactoring its assigned requirement:
+
+1. **Subsystem 8 (REQ-0145–0158) — Logical ICD Decoupling**:
+   - Purge all mandatory L0/L1/L2 wire framing ($L_{\text{preamble}}, L_{\text{header}}, L_{\text{trailer}}, L_{\text{crc}}, L_{\text{ifg}}$), bit stuffing, inter-frame gaps, and bus serialization penalties from abstract logical port ICDs.
+   - Subsystem 8 specifies pure logical interfaces (port types, payload structures, engineering units, coordinate references, publication rates, end-to-end latency deadlines $T_{\text{deadline}}$).
+   - In REQ-0157: Framing and serialization calculations apply ONLY when an explicit physical allocation mapping (`Allocation(Flow, BusLink)`) binds the flow to a concrete hardware profile. Pure logical flows evaluate with zero wire penalty ($L_{\text{frame}} = L_{\text{payload}}$, $\Delta = 0$).
+
+2. **Subsystems 1–3 (REQ-0001–0053) — Ingestion & Core Metamodel**:
+   - Purge internal Rust memory mechanics (bump arenas, raw pointer deques, thread pool deques $N_{\text{max\_workers}}$) from normative statements.
+   - Recast requirements as black-box system contracts: input grammar acceptance, deterministic AST synthesis ($S_1 = S_2 \implies \mathcal{C}(S_1) = \mathcal{C}(S_2)$), source span tracking, symbol namespace immutability, and diagnostic error propagation.
+
+3. **Subsystems 6–7 (REQ-0114–0144) — Dynamics & Safety Solvers**:
+   - Purge hardcoded solver heuristics (ORD-Horn classification, DPLL(T) loop step limits $\kappa_{\text{temporal}} = 50$) from normative statements.
+   - Specify declarative satisfiability contracts: temporal interval consistency, state machine determinism, and formal safety verification.
+
+4. **Cross-Cutting Boilerplate & Benchmark Purge (All 199 Requirements)**:
+   - Delete the copy-pasted "Directive 1–5" paragraphs repeating identically across all files.
+   - Eliminate dummy AC-05 performance micro-benchmarks (`< 25 ms, < 100 MB RSS`) from abstract AST metamodel lowering passes.
+   - Global compiler performance budgets belong strictly in Subsystem 12 (`REQ-0195` through `REQ-0199`).
+
 ---
-id: REQ-XXXX
-title: "Crisp Title"
-subsystem: "Subsystem N: <Subsystem Title>"
-uuidv5: <deterministic-uuidv5>
----
 
-# [REQ-XXXX] <Title>
+## 4. CANONICAL SINGLE-WORKER DISPATCH CONTRACT
 
-| Metadata Field | Contract Specification |
-| :--- | :--- |
-| **Requirement ID** | `REQ-XXXX` |
-| **Deterministic UUIDv5** | `<deterministic-uuidv5>` |
-| **Subsystem** | Subsystem N: <Subsystem Title> |
-| **Complexity Class** | Class $\mathbf{P}$ (<Exact Algorithmic Bound>) |
-| **NP Frontier Anchor** | N/A (Deterministic P) / <NP Frontier Anchor if applicable> |
-| **Diagnostic Code Bindings** | `E0XXX`, `E0YYY` |
-| **Governing Standard** | IEEE 29148-2018 / RFC 2119 / <Domain Standard> |
+The Lead Orchestrator dispatches 199 isolated worker instances sequentially using this exact execution template:
 
----
+```text
+Target: docs/requirements/final/REQ-XXXX.md (Issue #XXXX)
+Role: Context-Isolated Requirement Remediation Worker
 
-## 1. Normative Statement
-<Prescriptive RFC 2119 keywords (SHALL, MUST, SHALL NOT). Purely synthetic abstract MBSE placeholders (e.g. Package_0, Classifier_Alpha, Port_1, Flow_A, param_x : Real). ZERO concrete domain nouns.>
-
-## 2. Formal Invariant
-<Rigorous mathematical formulas. All display math in ```math ... ``` code fences. Never raw $$. Inline math must NEVER contain raw & or \\& (use \\land for conjunction).>
-
-## 3. Computational Complexity & Algorithmic Bounds
-<Complexity class, formal asymptotic upper bounds for time and memory, proof of polynomial termination.>
-
-## 4. Verification & Conformance Criteria (IEEE 29148 Acceptance Criteria)
-### AC-01: <Title>
-- **Given:** <precondition>
-- **When:** <triggering action>
-- **Then:** <observable postcondition>
-- **Diagnostic:** `E0XXX` emitted on failure.
-
-### AC-02: <Title>
-...
-### AC-03: <Title>
-...
-### AC-04: <Title>
-...
+Execution Steps:
+1. INGEST: Read `docs/requirements/final/REQ-XXXX.md`.
+2. DECOUPLE:
+   - Excised premature physical design (Subsystem 8 ICD wire framing).
+   - Excised internal compiler heap/threading mandates (Subsystems 1-3).
+   - Excised hardcoded solver heuristics (Subsystems 6-7).
+   - Excised copy-pasted "Directive 1-5" boilerplate and dummy AC-05 benchmarks.
+3. FORMAT:
+   - Ensure all inline math containing underscores uses `$``...``$`.
+   - Replace any `\llbracket` / `\rrbracket` with Unicode `⟦` / `⟧`.
+   - Preserve exact IEEE 29148 4-part structure and literal headers.
+4. VALIDATE:
+   - Run `cargo run -p validator -- docs/requirements/final/REQ-XXXX.md`.
+   - Assert exit code 0.
+5. PUBLISH:
+   - Strip YAML frontmatter to a temporary file: `/tmp/issue_XXXX_body.md`.
+   - Execute: `gh issue edit XXXX --body-file /tmp/issue_XXXX_body.md`.
+   - Sleep 0.8s for rate-limit protection.
+6. AUDIT:
+   - Verify via `gh api repos/gintatkinson/deap-compiler/issues/XXXX --header "Accept: application/vnd.github.html+json" -q .body_html`.
+   - Assert 0 KaTeX errors, 0 broken italics `<em>` in math, and native `<math-renderer>` rendering.
+7. REPORT: Return single-line completion token: `[VERIFIED] REQ-XXXX -> Issue #XXXX`.
 ```
 
 ---
 
-### PURE RUST VALIDATOR MANDATE
-Create and maintain a pure Rust validator in `tools/validator`:
-- Schema checks: `id: REQ-XXXX`, `Normative Statement`, `Formal Invariant`, `Computational Complexity & Algorithmic Bounds`, `Verification & Conformance Criteria`, `AC-01`.
-- Metadata Table check: `| Metadata Field | Contract Specification |`.
-- Banned crates check: `lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::*`.
-- Word count check: Crisp envelope 500–750 words, hard ceiling $\le 1500$ words.
-- All files MUST pass `cargo run -p validator` with exit code 0 before any wave commit.
+## 5. ORCHESTRATOR DISPATCH QUEUE
 
----
+The Lead Orchestrator iterates through the 199 items in strict sequence, maintaining progress in `.teamwork/status_ledger.json`:
 
-### GITHUB ISSUES PUBLISHING RULES & RENDERING AUDIT
-1. **Frontmatter Stripping**: Before publishing or updating a GitHub issue body, the YAML frontmatter (`--- ... ---`) MUST be cleanly parsed and stripped. The issue title becomes `[REQ-XXXX] <Title>` and the body starts with `# [REQ-XXXX] <Title>`. Failure to strip frontmatter triggers GitHub's Setext `<h2>` parsing bug.
-2. **Math Rendering Verification**: Display math must be in ```` ```math ```` blocks. Inline math must not contain `&` or `\&` (preventing `&amp;amp;` double-escaping).
-3. **1:1 Parity**: Strictly assert that Issue `#N` corresponds to `REQ-{N:04d}`.
-4. **Live API Audit**: Validate via `gh api repos/gintatkinson/deap-compiler/issues/<NUM> -H "Accept: application/vnd.github.v3.html+json"` that `frontmatter_h2 == False` and `ampamp == False`.
+- **Subsystem 1 (REQ-0001 .. REQ-0013)**: Foundational Invariants & Determinism
+- **Subsystem 2 (REQ-0014 .. REQ-0033)**: Schema Ingestion & Table Parsing
+- **Subsystem 3 (REQ-0034 .. REQ-0053)**: Core Metamodel & AST Graph Engine
+- **Subsystem 4 (REQ-0054 .. REQ-0097)**: KerML / SysML v2 Metamodel Lowering
+- **Subsystem 5 (REQ-0098 .. REQ-0113)**: 7D Physical Metrology & Conservation
+- **Subsystem 6 (REQ-0114 .. REQ-0127)**: Spatio-Temporal Dynamics & State Machines
+- **Subsystem 7 (REQ-0128 .. REQ-0144)**: Formal Safety, STPA & Verification
+- **Subsystem 8 (REQ-0145 .. REQ-0158)**: Level 1C Logical ICDs & Interconnects
+- **Subsystem 9 (REQ-0159 .. REQ-0174)**: Downstream Specification Projections
+- **Subsystem 10 (REQ-0175 .. REQ-0189)**: Code Generation, IR & Transport Bindings
+- **Subsystem 11 (REQ-0190 .. REQ-0194)**: Standardized Compiler Diagnostic Catalog
+- **Subsystem 12 (REQ-0195 .. REQ-0199)**: Performance Assurance & Regression Gates
 
----
-
-### TEAMWORK SWARM DISPATCH STRATEGY
-Divide the 199 requirements into structured subsystem waves:
-- Wave 1..8: Subsystems 1..3 (`REQ-0001`..`REQ-0066`)
-- Wave 9..15: Subsystems 4..5 (`REQ-0067`..`REQ-0113`)
-- Wave 16..20: Subsystems 6..7 (`REQ-0114`..`REQ-0144`)
-- Wave 21..24: Subsystem 8 (`REQ-0145`..`REQ-0158`)
-- Wave 25..26: Subsystem 9 (`REQ-0159`..`REQ-0174`)
-- Wave 27..28: Subsystem 10 (`REQ-0175`..`REQ-0189`)
-- Wave 29: Subsystem 11 (`REQ-0190`..`REQ-0194`)
-- Wave 30: Subsystem 12 (`REQ-0195`..`REQ-0199`)
-
-Every wave MUST follow the strict pipeline:
-1. Ingest seed -> 2. Elaborate contract -> 3. Run Rust validator -> 4. Commit -> 5. Publish to GitHub -> 6. Audit live rendering via GitHub API.
-Zero shortcuts. Zero fabricated claims.
+The orchestrator halts only when all 199 items have achieved `[VERIFIED]` status.
