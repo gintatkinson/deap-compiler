@@ -113,14 +113,19 @@ Final Output: docs/requirements/final/REQ-XXXX.md
 
 Directives:
 1. Ingest strictly `docs/requirements/seeds/REQ-XXXX.md` using workspace-relative paths. Do not modify the seed file.
-2. Elaborate the specification into the mandatory 4-part Contract Schema:
-   - **Normative Statement**: Positive RFC 2119 prescriptive specification ("shall" / "must").
+2. Elaborate the specification into the mandatory IEEE 29148 Contract Schema:
+   - Frontmatter (`id: REQ-XXXX`, `title`, `subsystem`, `uuidv5`).
+   - **Normative Statement**: Positive, concise RFC 2119 prescriptive contract ("shall" / "must") defining inputs, operational transformations, outputs, and failure modes. Zero purple prose or repetitive fluff.
    - **Formal Invariant**: KaTeX display math on isolated $$ lines (\begin{aligned} for multi-line).
-   - **Computational Complexity & Algorithmic Bounds**: Explicit complexity class (P, NP-complete, PSPACE) and asymptotic bounds (O(1), O(N), O(V+E), NP-1..NP-8 bindings).
-   - **Verification & Conformance Criteria**: Deterministic verification check with diagnostic error code binding (E01xx--E05xx per REQ-0191).
-3. Enforce zero crate names (`lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::*`).
-4. Enforce zero Unicode em dashes (ASCII `--` or `-` exclusively).
-5. Write the completed, verified specification to `docs/requirements/final/REQ-XXXX.md`.
+   - **Computational Complexity & Algorithmic Bounds**: Concise complexity class (P, NP-complete, PSPACE) and asymptotic bounds (O(1), O(N), O(V+E), etc.) with relevant NP frontier reference in 1-2 lines. Never copy-paste multi-page essays on unrelated NP frontiers.
+   - **Verification & Conformance Criteria (IEEE 29148 Acceptance Criteria)**:
+     * Numbered, testable acceptance criteria (`AC-01`, `AC-02`, ...).
+     * Each AC must detail: **Given** (Precondition), **When** (Action / Stimulus), **Then** (Expected Observable Invariant), and **Diagnostic Code Binding** (`E01xx`--`E05xx`).
+3. Anti-Bloat Word Limit: Target 400--800 words, strictly < 1,200 words. Maintain high information density and engineering rigor.
+4. Enforce zero crate names (`lasso`, `petgraph`, `bumpalo`, `typed-arena`, `memmap2`, `proptest`, `rayon`, `deap::*`).
+5. Enforce zero Unicode em dashes (ASCII `--` or `-` exclusively).
+6. Write the completed, verified specification to `docs/requirements/final/REQ-XXXX.md`.
+7. Mandatory Verification Gate: Run `node scripts/validate_requirement.js docs/requirements/final/REQ-XXXX.md` and ensure PASS exit code 0.
 
 PROCEED
 ```
@@ -136,14 +141,16 @@ gh issue create \
 
 ---
 
-## 6. Mandatory 4-Part Contract Schema Checklist
+## 6. Mandatory IEEE 29148 Contract-Complete Schema Checklist
 
-Every single requirement specification block MUST provide the following four sections:
+Every single requirement specification block MUST provide the following sections:
 
-- **Normative Statement**: Positive RFC 2119 prescriptive specification ("shall" / "must") defining inputs, behavior, and outputs.
+- **YAML Frontmatter**: Including `id: REQ-XXXX`, `title`, `subsystem`, and deterministic RFC 4122 `uuidv5`.
+- **Normative Statement**: Positive RFC 2119 prescriptive specification ("shall" / "must") defining inputs, behavior, constraints, and outputs without bloated repetition.
 - **Formal Invariant**: KaTeX display math on isolated `$$` fences (`\begin{aligned} ... \end{aligned}` for multi-line).
-- **Computational Complexity & Algorithmic Bounds**: Explicit complexity class (P, NP-complete, PSPACE) and asymptotic bounds (O(1), O(N), O(V+E), O(N^3)).
-- **Verification & Conformance Criteria**: Deterministic verification check with diagnostic error code binding (`E01xx`--`E05xx` per REQ-0191).
+- **Computational Complexity & Algorithmic Bounds**: Explicit complexity class (P, NP-complete, PSPACE) and asymptotic bounds ($O(1)$, $O(N)$, $O(V+E)$).
+- **Verification & Conformance Criteria (IEEE 29148 Acceptance Criteria)**: Numbered, testable criteria (`AC-01`, `AC-02`, ...) using Given/When/Then contracts with diagnostic error code bindings (`E01xx`--`E05xx` per REQ-0191).
+- **Length Constraint**: High-density engineering contract (target 400--800 words, strictly < 1,200 words). Prohibit discursive treatises.
 
 ---
 
