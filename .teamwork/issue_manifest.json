@@ -1,0 +1,1992 @@
+[
+  {
+    "id": "REQ-0001",
+    "title": "[REQ-0001] Abstract MBSE Compiler Mandate & Pure Schema-Driven Execution",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0001.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0002",
+    "title": "[REQ-0002] Surjective Lexical Provenance Gate & Positive AST Provenance",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0002.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0003",
+    "title": "[REQ-0003] Bitwise Determinism & Zero Diff Churn Verification",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0003.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0004",
+    "title": "[REQ-0004] Workspace Sovereignty & Dynamic Relative Path Resolution",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0004.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0005",
+    "title": "[REQ-0005] Standalone Self-Contained Execution & Environment Independence",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0005.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0006",
+    "title": "[REQ-0006] Incremental Compilation Dependency Tracking & AST Cache Invalidation",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0006.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0007",
+    "title": "[REQ-0007] Multi-File Compilation Unit Resolution & Hierarchical Package Scoping",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0007.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0008",
+    "title": "[REQ-0008] Sovereign Single Source of Truth (SSOT) Multi-File AST Model",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0008.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0009",
+    "title": "[REQ-0009] Zero-Copy Bump Arena Memory Management",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0009.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0010",
+    "title": "[REQ-0010] Deterministic RFC 4122 UUIDv5 Topological Namespace Hashing",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0010.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0011",
+    "title": "[REQ-0011] Deterministic Non-Panicking Execution Contract & Release Latency Bounds",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0011.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0012",
+    "title": "[REQ-0012] Bounded Work-Stealing Parallelism & Thread Isolation",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0012.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0013",
+    "title": "[REQ-0013] Synchronization Token Error Recovery Architecture",
+    "subsystem": "Subsystem 1: System Vision, Bootstrapping & Foundational Invariants",
+    "body_file": "docs/requirements/final/REQ-0013.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0014",
+    "title": "[REQ-0014] File Format Detection Engine by Extension & Magic Signatures",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0014.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0015",
+    "title": "[REQ-0015] Event-Driven CommonMark Table Lexer & Token Streaming",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0015.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0016",
+    "title": "[REQ-0016] Synchronization Token Recovery on Table Delimiter Boundaries",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0016.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0017",
+    "title": "[REQ-0017] Dynamic Semantic Header Key Normalization & Order-Independent Binding",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0017.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0018",
+    "title": "[REQ-0018] Multi-Line Table Cell Block Token Preservation & Normalization",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0018.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0019",
+    "title": "[REQ-0019] Table Row-to-Entity Structural Mapping & Identifier Sanitization",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0019.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0020",
+    "title": "[REQ-0020] Disambiguation of Array Indexing Syntax in Tabular Schemas",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0020.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0021",
+    "title": "[REQ-0021] Tabular Schema Ingestion for Structural Parts & Component Assemblies",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0021.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0022",
+    "title": "[REQ-0022] Tabular Schema Ingestion for Directed Ports & Structural Interfaces",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0022.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0023",
+    "title": "[REQ-0023] Tabular Schema Ingestion for Attributes, Data Types & Numerical Envelopes",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0023.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0024",
+    "title": "[REQ-0024] Tabular Schema Ingestion for Formal Constraints & Operational Envelopes",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0024.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0025",
+    "title": "[REQ-0025] Tabular Schema Ingestion for Topological Connections & Interconnects",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0025.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0026",
+    "title": "[REQ-0026] Tabular Schema Ingestion for Behaviors, Actions & State Transitions",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0026.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0027",
+    "title": "[REQ-0027] Protocol Buffer (Proto3) AST Ingestion for Messages, Fields & RPCs",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0027.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0028",
+    "title": "[REQ-0028] OMG IDL AST Ingestion for Structs, Interfaces & Directional Parameters",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0028.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0029",
+    "title": "[REQ-0029] OpenAPI (JSON/YAML) Schema Ingestion for Paths, Operations & Payloads",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0029.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0030",
+    "title": "[REQ-0030] XML Schema Definition (XSD) & ADL Schema Ingestion for Component Topologies",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0030.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0031",
+    "title": "[REQ-0031] Canonical SysML v2 Textual Model Emission (`schema/model.sysml`)",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0031.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0032",
+    "title": "[REQ-0032] Deterministic Qualified-Name Symbol Sorting for Canonical Model Emission",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0032.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0033",
+    "title": "[REQ-0033] Multi-File Cryptographic Digest Computation (`.pipeline/schema-digest.json`)",
+    "subsystem": "Subsystem 2: Universal Schema Ingestion Engine",
+    "body_file": "docs/requirements/final/REQ-0033.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0034",
+    "title": "[REQ-0034] Contiguous Memory Lowering & Linear Allocation Complexity",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0034.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0035",
+    "title": "[REQ-0035] Deterministic Node Handle Addressing & Reference Safety",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0035.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0036",
+    "title": "[REQ-0036] Concurrent String Interning & Scalar Symbol Deduplication Architecture",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0036.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0037",
+    "title": "[REQ-0037] Classifier Definition & Feature Usage Metamodel Typing Relations",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0037.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0038",
+    "title": "[REQ-0038] Strongly Typed Port Directions (`in`, `out`, `inout`) & Directional Invariants",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0038.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0039",
+    "title": "[REQ-0039] Flow Payload Binding & Stream Rate Multiplicity Validation",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0039.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0040",
+    "title": "[REQ-0040] Two-Pass Symbol Hoisting & Lexical Scope Table Construction",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0040.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0041",
+    "title": "[REQ-0041] Lexical Scope Lookup & Fully Qualified Path Resolution (`::`)",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0041.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0042",
+    "title": "[REQ-0042] Circular Dependency & Metamodel Inheritance Cycle Detection",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0042.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0043",
+    "title": "[REQ-0043] Multi-File Module Ingestion & Directory-to-Namespace Hierarchy Mapping",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0043.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0044",
+    "title": "[REQ-0044] Lossless AST Serialization & Deserialization (JSON & CBOR Formats)",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0044.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0045",
+    "title": "[REQ-0045] Immutable AST Graph Traversal Engine with Bounded Linear Complexity",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0045.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0046",
+    "title": "[REQ-0046] Mutable AST Transformation & In-Place Rewrite Engine",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0046.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0047",
+    "title": "[REQ-0047] Graph-Theoretic AST Representation & Directed Multigraph Metamodel",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0047.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0048",
+    "title": "[REQ-0048] Topological Sort Dependency Scheduling (Tarjan SCC & Kahn Algorithms)",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0048.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0049",
+    "title": "[REQ-0049] Context-Bounded AST Slicing (`query_slice`) for Token-Isolated Subagents",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0049.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0050",
+    "title": "[REQ-0050] AST Slice Serialization Contract with Reified Dependency Envelopes",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0050.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0051",
+    "title": "[REQ-0051] Incremental Compilation Cache Invalidation via Module Dependency DAG",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0051.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0052",
+    "title": "[REQ-0052] Memory-Mapped Diff Engine & Unmodified Output File Bypass",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0052.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0053",
+    "title": "[REQ-0053] Tombstone Pruning Engine for Renamed & Orphaned AST Nodes",
+    "subsystem": "Subsystem 3: Core Metamodel, Node Arena & AST Graph Engine",
+    "body_file": "docs/requirements/final/REQ-0053.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0054",
+    "title": "[REQ-0054] KerML Root, Element, Relationship & Annotation Abstract Syntax",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0054.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0055",
+    "title": "[REQ-0055] KerML Namespace, Membership, OwningMembership & Qualified Naming",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0055.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0056",
+    "title": "[REQ-0056] KerML Import Declaration Semantics (Public, Private, All, Filtered)",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0056.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0057",
+    "title": "[REQ-0057] KerML Core Classifiers: Type, Classifier, DataType, Class, Structure",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0057.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0058",
+    "title": "[REQ-0058] KerML Association, AssociationStructure & Link Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0058.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0059",
+    "title": "[REQ-0059] KerML Interaction & Step Abstract Syntax Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0059.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0060",
+    "title": "[REQ-0060] KerML Core Features: Feature, Parameter, Step & FeatureTyping Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0060.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0061",
+    "title": "[REQ-0061] KerML Subsetting Relationship (`:>`) Lowering & Co-variance Invariants",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0061.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0062",
+    "title": "[REQ-0062] KerML Redefinition Relationship (`:>>`) Lowering & Type Conformance",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0062.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0063",
+    "title": "[REQ-0063] KerML Conjugation Relationship (`~`) Lowering & Port Inversion",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0063.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0064",
+    "title": "[REQ-0064] KerML Disjoining, Differencing, Intersecting & Unioning Type Algebra",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0064.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0065",
+    "title": "[REQ-0065] KerML Expressions: Expression, Literal, OperatorExpression & Invocations",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0065.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0066",
+    "title": "[REQ-0066] KerML Functions: Function, Parameter Directions & Return Typing",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0066.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0067",
+    "title": "[REQ-0067] KerML Occurrences: OccurrenceDefinition & OccurrenceUsage Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0067.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0068",
+    "title": "[REQ-0068] KerML PortionKind, TimeSlice, Snapshot & EventOccurrence Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0068.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0069",
+    "title": "[REQ-0069] KerML Behaviors: Performance, Execution & ActionUsage Semantics",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0069.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0070",
+    "title": "[REQ-0070] SysML v2 Package & Subsystem Model Organization Grammar",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0070.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0071",
+    "title": "[REQ-0071] SysML v2 PartDefinition (`part def`) & PartUsage (`part`) Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0071.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0072",
+    "title": "[REQ-0072] SysML v2 PortDefinition (`port def`) & DirectedPort Usage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0072.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0073",
+    "title": "[REQ-0073] SysML v2 ItemDefinition (`item def`) & ItemUsage (`item`) Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0073.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0074",
+    "title": "[REQ-0074] SysML v2 ConnectionDefinition (`connection def`) & ConnectionUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0074.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0075",
+    "title": "[REQ-0075] SysML v2 InterfaceDefinition (`interface def`) & InterfaceUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0075.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0076",
+    "title": "[REQ-0076] SysML v2 ItemFlow (`flow`) & Streaming Direction Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0076.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0077",
+    "title": "[REQ-0077] SysML v2 AllocationDefinition (`allocation def`) & AllocationUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0077.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0078",
+    "title": "[REQ-0078] SysML v2 ActionDefinition (`action def`) & ActionUsage (`action`) Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0078.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0079",
+    "title": "[REQ-0079] SysML v2 StateDefinition (`state def`), StateUsage (`state`) & ParallelState",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0079.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0080",
+    "title": "[REQ-0080] SysML v2 TransitionUsage (`transition`) with Triggers, Guards & Effects",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0080.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0081",
+    "title": "[REQ-0081] SysML v2 EntryAction, DoAction & ExitAction State Lifecycle Hooks",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0081.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0082",
+    "title": "[REQ-0082] SysML v2 CalculationDefinition (`calc def`) & CalculationUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0082.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0083",
+    "title": "[REQ-0083] SysML v2 ConstraintDefinition (`constraint def`) & ConstraintUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0083.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0084",
+    "title": "[REQ-0084] SysML v2 AssertConstraintUsage (`assert constraint`) Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0084.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0085",
+    "title": "[REQ-0085] SysML v2 RequirementDefinition (`requirement def`) & RequirementUsage Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0085.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0086",
+    "title": "[REQ-0086] SysML v2 SatisfyRequirementUsage (`satisfy requirement`) Traceability",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0086.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0087",
+    "title": "[REQ-0087] SysML v2 VerificationCaseDefinition (`verification def`) & VerificationUsage",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0087.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0088",
+    "title": "[REQ-0088] SysML v2 ViewDefinition (`view def`), ViewUsage & Viewpoint Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0088.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0089",
+    "title": "[REQ-0089] SysML v2 Expose Filtering & Viewpoint Conformance Grammar",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0089.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0090",
+    "title": "[REQ-0090] SysML v2 MetadataDefinition (`metadata def`) & Semantic Annotation Usage (`@`)",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0090.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0091",
+    "title": "[REQ-0091] KerML Standard Library: `Base` Package & Primitive Equality Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0091.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0092",
+    "title": "[REQ-0092] Canonical Scalar Type Lowering & Precision Preservation",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0092.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0093",
+    "title": "[REQ-0093] KerML Standard Library: `Collections` Package (Set, Sequence, OrderedSet, Bag)",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0093.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0094",
+    "title": "[REQ-0094] KerML Standard Library: `ControlFunctions` Package (Decision, Merge, Fork, Join)",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0094.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0095",
+    "title": "[REQ-0095] SysML v2 Quantities Library: `Quantities` & Measurement Scale Lowering",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0095.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0096",
+    "title": "[REQ-0096] SysML v2 Quantities Library: `ISQ` & `ISQBase` Dimension Systems",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0096.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0097",
+    "title": "[REQ-0097] SysML v2 Quantities Library: `SI` Base & Derived Unit Definitions",
+    "subsystem": "Subsystem 4: Complete OMG SysML v2 / KerML Metamodel Lowering & Grammar",
+    "body_file": "docs/requirements/final/REQ-0097.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0098",
+    "title": "[REQ-0098] Formal $\\\\mathbb{Q}^7$ Rational Vector Space over SI Base Dimensions",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0098.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0099",
+    "title": "[REQ-0099] Base Dimension Tuple Representation & Generalized Conjugate Power Pairs",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0099.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0100",
+    "title": "[REQ-0100] Exact Rational Exponent Arithmetic & Kirchhoff Continuity Conservation",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0100.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0101",
+    "title": "[REQ-0101] Static Dimensional Homogeneity Validation for Additive Expressions ($A \\\\pm B$)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0101.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0102",
+    "title": "[REQ-0102] Multiplicative Dimensional Exponent Addition & Subtraction ($A \\\\cdot B, A / B$)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0102.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0103",
+    "title": "[REQ-0103] Dimensionless Constraint Enforcement for Transcendental Arguments ($\\\\sin, \\\\cos, \\\\exp, \\\\ln$)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0103.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0104",
+    "title": "[REQ-0104] Rational Power Evaluation for Fractional Exponents ($A^{p/q}$)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0104.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0105",
+    "title": "[REQ-0105] Switched & Piecewise Conservative Flow Networks & Linear Complementarity Solvers (NP-6)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0105.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0106",
+    "title": "[REQ-0106] Conservative vs Non-Conservative Flow Network Classification",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0106.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0107",
+    "title": "[REQ-0107] Generalized Conjugate Variable Pair Modeling (Effort $\\\\times$ Flow = Power)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0107.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0108",
+    "title": "[REQ-0108] Generalized Kirchhoff Flow Law ($\\\\sum \\\\text{Through} = 0$) at Conservative Junctions",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0108.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0109",
+    "title": "[REQ-0109] Generalized Kirchhoff Potential Law ($\\\\oint \\\\text{Across} = 0$) across Closed Loops",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0109.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0110",
+    "title": "[REQ-0110] Flow Conservation Network Incidence Matrix Construction & Rank Verification",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0110.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0111",
+    "title": "[REQ-0111] Abstract Power Product Balance ($\\\\sum P_{\\\\text{in}} = \\\\sum P_{\\\\text{out}} + \\\\frac{dE}{dt}$)",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0111.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0112",
+    "title": "[REQ-0112] Parametric Operational Envelopes & Closed Interval $[v_{\\\\min}, v_{\\\\max}]$ Validation",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0112.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0113",
+    "title": "[REQ-0113] Static Boundary Value Analysis & Parametric Tolerance Envelope Verification",
+    "subsystem": "Subsystem 5: 7D Physical Metrology & Abstract Flow Conservation Networks",
+    "body_file": "docs/requirements/final/REQ-0113.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0114",
+    "title": "[REQ-0114] Spatio-Temporal Occurrence Lifecycles & Temporal Interval Bounds $[t_{\\\\text{start}}, t_{\\\\text{end}}]$",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0114.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0115",
+    "title": "[REQ-0115] Allen's 13 Qualitative Interval Relations Axiomatic Algebraic Solver",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0115.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0116",
+    "title": "[REQ-0116] Temporal Relation Composition Table & Path Consistency Constraint Propagation",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0116.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0117",
+    "title": "[REQ-0117] Allen's Interval Algebra Temporal Consistency & ORD-Horn SMT Solver (NP-1)",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0117.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0118",
+    "title": "[REQ-0118] Directed Causal Precedence DAG Construction & Cycle Detection",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0118.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0119",
+    "title": "[REQ-0119] Action Step Sequence Execution Semantics & Fork-Join Concurrency",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0119.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0120",
+    "title": "[REQ-0120] Hierarchical State Machine (Statechart) Containment & Orthogonal Regions",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0120.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0121",
+    "title": "[REQ-0121] State Transition Trigger Event Dispatching & Event Queue Semantics",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0121.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0122",
+    "title": "[REQ-0122] Deterministic Transition Guard Disjointness Verification ($G_1 \\\\wedge G_2 \\\\equiv \\\\text{false}$)",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0122.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0123",
+    "title": "[REQ-0123] Complete State Machine Reachability Analysis & Dead State Diagnostics",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0123.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0124",
+    "title": "[REQ-0124] Discrete State Machine Reachability, Deadlock & Livelock in Orthogonal Regions (NP-5)",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0124.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0125",
+    "title": "[REQ-0125] Failsafe Fallback Transitions & High-Priority Preemptive Evacuation",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0125.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0126",
+    "title": "[REQ-0126] State History Pseudostates (Shallow & Deep History) Restoration Semantics",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0126.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0127",
+    "title": "[REQ-0127] State Machine Simulation Stepper & Trace Log Generation",
+    "subsystem": "Subsystem 6: Spatio-Temporal Dynamics & Discrete State Machine Solvers",
+    "body_file": "docs/requirements/final/REQ-0127.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0128",
+    "title": "[REQ-0128] 7-Tier Bipartite Traceability DAG Architecture",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0128.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0129",
+    "title": "[REQ-0129] Upward Allocation Completeness Gate ($\\forall \\text{Req}, \\exists \\text{Element}$)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0129.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0130",
+    "title": "[REQ-0130] Downward Realization Completeness Gate ($\\forall \\text{Element}, \\exists \\text{Req}$)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0130.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0131",
+    "title": "[REQ-0131] Verification Witness Completeness Gate ($\\forall \\text{Req}, \\exists \\text{Witness}$)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0131.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0132",
+    "title": "[REQ-0132] Extraneous Node Detection & Dead Code Elimination in Safety Contexts",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0132.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0133",
+    "title": "[REQ-0133] Cryptographic Merkle Root Attestation for End-to-End Verification Graphs",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0133.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0134",
+    "title": "[REQ-0134] Hierarchical Control Structure (HCS) AST Extraction & Controller-Process Topology",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0134.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0135",
+    "title": "[REQ-0135] STPA Minimal Hazard Cut-Sets & Unsafe Control Action Minimization (NP-4)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0135.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0136",
+    "title": "[REQ-0136] STPA Combinatorial Unsafe Control Action Tensor Expansion & Pruning",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0136.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0137",
+    "title": "[REQ-0137] Automated Boolean Safety Invariant Synthesis from Hazard Scenarios",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0137.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0138",
+    "title": "[REQ-0138] Structured `ConstraintExpr` AST Invariant Generation with De Morgan Normalization",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0138.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0139",
+    "title": "[REQ-0139] FMECA Failure Mode Synthesis across 4 Universal Dimensions (Interface, State, Action, Resource)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0139.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0140",
+    "title": "[REQ-0140] Quantitative Risk Priority Number (RPN) Integer Scoring Engine ($RPN = S \\times O \\times D$)",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0140.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0141",
+    "title": "[REQ-0141] Run-Time Assurance (RTA) Simplex/Duplex Architecture Pattern Synthesis",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0141.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0142",
+    "title": "[REQ-0142] Smooth State Transition Blending & $C^1$-Continuity Bounds",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0142.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0143",
+    "title": "[REQ-0143] Control Barrier Function (CBF) Forward Invariance Contract Formulation",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0143.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0144",
+    "title": "[REQ-0144] Declarative Pluggable Regulatory Safety Profiles Engine",
+    "subsystem": "Subsystem 7: Formal Safety, Traceability & Regulatory Verification",
+    "body_file": "docs/requirements/final/REQ-0144.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0145",
+    "title": "[REQ-0145] Automated $N^2$ System Interface Matrix Construction & Topology Indexing",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0145.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0146",
+    "title": "[REQ-0146] $N^2$ Interface Symmetry & Directed Flow Antisymmetry Verification",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0146.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0147",
+    "title": "[REQ-0147] Structural Allocation, Interconnect Clustering & Logical Channel Multiplexing (NP-2)",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0147.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0148",
+    "title": "[REQ-0148] Master Signal Flow Dictionary: Canonical 10-Column Structural Specification",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0148.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0149",
+    "title": "[REQ-0149] Port Definition Rosters & Hierarchical Port Type Binding",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0149.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0150",
+    "title": "[REQ-0150] Connection Binding Rosters, Serialization Layout & Bitfield Packing",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0150.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0151",
+    "title": "[REQ-0151] Dangling Port Gate & Unconnected Interface Compile-Time Failure",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0151.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0152",
+    "title": "[REQ-0152] SI Unit Verification in $\\mathbb{Q}^7$ Rational Metric Space across Signal Flows",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0152.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0153",
+    "title": "[REQ-0153] Failsafe Default Value Domain Validity & Boundary Assertion Gate",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0153.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0154",
+    "title": "[REQ-0154] Logical Channel Bandwidth Utilization & Capacity Budgeting",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0154.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0155",
+    "title": "[REQ-0155] Rate Monotonic Scheduling (RMS) Schedulability Bound Verification",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0155.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0156",
+    "title": "[REQ-0156] Earliest Deadline First (EDF) Dynamic Schedulability Verification",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0156.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0157",
+    "title": "[REQ-0157] Protocol Framing Overhead Calculation & Header Serialization Penalty",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0157.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0158",
+    "title": "[REQ-0158] Worst-Case Execution Time (WCET) Propagation across Interconnect Latency Paths",
+    "subsystem": "Subsystem 8: Level 1C Interface Control Documents & Interconnect Contracts",
+    "body_file": "docs/requirements/final/REQ-0158.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0159",
+    "title": "[REQ-0159] Deterministic RFC 4122 UUIDv5 Document Anchors for Specification Artifacts",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0159.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0160",
+    "title": "[REQ-0160] Bottom-Up Feature-First Dependency Ordering & DAG Scheduling",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0160.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0161",
+    "title": "[REQ-0161] Epics Projection: Structural Decomposition & Subsystem Capability Mapping",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0161.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0162",
+    "title": "[REQ-0162] Epics Projection: System Architecture Diagrams & Streaming Artifact Sink Interface",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0162.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0163",
+    "title": "[REQ-0163] Epics Projection: High-Level Macro Statechart Diagrams & Operational Scenarios",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0163.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0164",
+    "title": "[REQ-0164] Feature Projection: 3-Layer Definition of Done Mandatory Structural Enforcement",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0164.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0165",
+    "title": "[REQ-0165] Feature Layer 1: Domain State, Data Models & Primitive Structural Typing",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0165.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0166",
+    "title": "[REQ-0166] Feature Layer 2: Logic, Dynamic Operations & Hierarchical State Machines",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0166.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0167",
+    "title": "[REQ-0167] Feature Layer 3: Presentation, Visual Layout & Machine Interface Binding",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0167.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0168",
+    "title": "[REQ-0168] Feature Class Diagram Emission with Ancestor Containment & No Isolated Classes",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0168.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0169",
+    "title": "[REQ-0169] User Stories Projection: Deterministic Gherkin BDD Synthesis from AST Constraints",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0169.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0170",
+    "title": "[REQ-0170] User Story BDD Patterns: Pattern A, Pattern B, and Pattern C Synthesis",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0170.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0171",
+    "title": "[REQ-0171] User Stories Projection: Boundary Value Analysis (BVA) Scenario Synthesis",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0171.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0172",
+    "title": "[REQ-0172] Use Cases Projection: Operational Flows, Primary Path & Step Traversal",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0172.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0173",
+    "title": "[REQ-0173] Use Cases Projection: Alternate Flows & Exception Handler Branching",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0173.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0174",
+    "title": "[REQ-0174] Downstream Projections: Bidirectional Realization Matrices, STPA Matrices & ICD Tables Synthesis",
+    "subsystem": "Subsystem 9: Downstream Specification Projections",
+    "body_file": "docs/requirements/final/REQ-0174.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0175",
+    "title": "[REQ-0175] LUMI Intermediate Representation (LUMI IR): SSA Basic Blocks & Control Flow Graph",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0175.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0176",
+    "title": "[REQ-0176] LUMI IR Memory Semantics: Typed Allocations, Immutability & Value Semantics",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0176.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0177",
+    "title": "[REQ-0177] Streaming Artifact Sink Interface & Bounded Memory IO Emission",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0177.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0178",
+    "title": "[REQ-0178] Manifest-Driven File Persistence (`CodegenManifest`) with XXH3 Content Fingerprinting",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0178.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0179",
+    "title": "[REQ-0179] Continuous-Time Numerical Solvers: Discrete Fixed-Step Euler Integration",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0179.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0180",
+    "title": "[REQ-0180] Register Allocation & SSA Basic Block Scheduling in LUMI IR (NP-7)",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0180.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0181",
+    "title": "[REQ-0181] Linear State-Space Matrix Evaluation & Higher-Order Numerical Solvers (RK4)",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0181.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0182",
+    "title": "[REQ-0182] ROS2 Node Architecture Emission: Publishers, Subscribers & QoS Profiles",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0182.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0183",
+    "title": "[REQ-0183] OMG DDS IDL Schema Generation & CDR Binary Serialization Codecs",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0183.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0184",
+    "title": "[REQ-0184] Freestanding Zero-Allocation C++20 Header/Source Code Emission",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0184.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0185",
+    "title": "[REQ-0185] High-Integrity Embedded MISRA C99 Source Code Generation with Static Memory Layout",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0185.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0186",
+    "title": "[REQ-0186] Freestanding RTOS Memory-Mapped Register Header Generation",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0186.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0187",
+    "title": "[REQ-0187] Formal Verification Script Emission: Proof Obligation Synthesis (`.m`)",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0187.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0188",
+    "title": "[REQ-0188] SMT-LIB2 / Z3 First-Order Constraint Encoding & Proof Framework Generation",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0188.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0189",
+    "title": "[REQ-0189] Atomic In-Place File Overwrite & Filesystem Metadata Lock Serialization Prevention",
+    "subsystem": "Subsystem 10: Multi-Target Code Generation, Simulation & Transport Bindings",
+    "body_file": "docs/requirements/final/REQ-0189.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0190",
+    "title": "[REQ-0190] Rich Source-Mapped Diagnostic Reporting with Byte Spans, Synchronization Tokens & Error Accumulation",
+    "subsystem": "Subsystem 11: Standardized Compiler Diagnostic Error Catalog",
+    "body_file": "docs/requirements/final/REQ-0190.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0191",
+    "title": "[REQ-0191] Standardized Compiler Diagnostic Taxonomy, Source-Mapping & Recovery Architecture",
+    "subsystem": "Subsystem 11: Standardized Compiler Diagnostic Error Catalog",
+    "body_file": "docs/requirements/final/REQ-0191.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0192",
+    "title": "[REQ-0192] Bidirectional Reverse-Sync Prose Gate: Tri-State Reconciliation & Prose Protection",
+    "subsystem": "Subsystem 11: Standardized Compiler Diagnostic Error Catalog",
+    "body_file": "docs/requirements/final/REQ-0192.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0193",
+    "title": "[REQ-0193] Non-Destructive Markdown Parser & Memory-Mapped AST Mutation Engine",
+    "subsystem": "Subsystem 11: Standardized Compiler Diagnostic Error Catalog",
+    "body_file": "docs/requirements/final/REQ-0193.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0194",
+    "title": "[REQ-0194] Artifact Drift Detection & Zero-Divergence Bijective Model Synchronization",
+    "subsystem": "Subsystem 11: Standardized Compiler Diagnostic Error Catalog",
+    "body_file": "docs/requirements/final/REQ-0194.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0195",
+    "title": "[REQ-0195] Unified Headless CLI Architecture & Deterministic Subcommand Interface",
+    "subsystem": "Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation",
+    "body_file": "docs/requirements/final/REQ-0195.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0196",
+    "title": "[REQ-0196] Performance Assurance Gates: Execution Latency (< 25 ms) & Peak Memory RSS (< 100 MB RSS)",
+    "subsystem": "Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation",
+    "body_file": "docs/requirements/final/REQ-0196.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0197",
+    "title": "[REQ-0197] NP-8: Formal Proof Obligations & Invariant Contract Satisfiability via Decidable SMT Fragments",
+    "subsystem": "Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation",
+    "body_file": "docs/requirements/final/REQ-0197.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0198",
+    "title": "[REQ-0198] Property-Based Fuzzing & Generative Metamodel Mutation for AST Invariant Preservation",
+    "subsystem": "Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation",
+    "body_file": "docs/requirements/final/REQ-0198.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  },
+  {
+    "id": "REQ-0199",
+    "title": "[REQ-0199] 4-Pass Semantic Parity Verification Framework (Frontmatter, Graph Topology, Tables, Numerical Tolerances)",
+    "subsystem": "Subsystem 12: Compiler Performance, CLI, Assurance & Regression Inoculation",
+    "body_file": "docs/requirements/final/REQ-0199.md",
+    "labels": [
+      "requirement",
+      "clean-room"
+    ]
+  }
+]
