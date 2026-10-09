@@ -113,51 +113,79 @@ fn validate_file(path: &Path) -> ValidationReport {
         );
     }
 
-    // 4. Validate Display Math Delimiters ($$ ... $$)
+    // 4. Validate Display Math Delimiters ($$ ... $$ and ```math ... ```)
+    let mut math_blocks: Vec<String> = Vec::new();
+
+    // Check $$ delimiters
     let display_parts: Vec<&str> = content.split("$$").collect();
     if display_parts.len() > 1 && display_parts.len() % 2 == 0 {
         errors.push("Unbalanced display math delimiters ($$).".to_string());
     }
-
     for (idx, &part) in display_parts.iter().enumerate() {
         if idx % 2 == 1 {
-            let math = part.trim();
-            if math.is_empty() {
-                errors.push(format!("Display math block {} is empty.", (idx + 1) / 2));
-                continue;
-            }
-            // Check for raw \n or \r used as LaTeX control sequences
-            if math.contains("\\n ") || math.contains("\\n\\") || math.ends_with("\\n")
-                || math.contains("\\r ") || math.contains("\\r\\") || math.ends_with("\\r")
-            {
-                errors.push(format!(
-                    "Display math block {} contains raw \\n or \\r LaTeX control sequence.",
-                    (idx + 1) / 2
-                ));
-            }
+            math_blocks.push(part.trim().to_string());
+        }
+    }
 
-            // Check for balanced curly braces in math block
-            let mut depth: i32 = 0;
-            let mut prev_char = ' ';
-            for ch in math.chars() {
-                if prev_char != '\\' {
-                    if ch == '{' {
-                        depth += 1;
-                    } else if ch == '}' {
-                        depth -= 1;
-                    }
-                }
-                prev_char = ch;
-                if depth < 0 {
-                    break;
+    // Check ```math code blocks
+    let mut in_math_code = false;
+    let mut current_math_code = String::new();
+    for line in content.lines() {
+        let trimmed = line.trim();
+        if trimmed == "```math" {
+            if in_math_code {
+                errors.push("Nested ```math code block detected.".to_string());
+            }
+            in_math_code = true;
+            current_math_code.clear();
+        } else if in_math_code && trimmed == "```" {
+            in_math_code = false;
+            math_blocks.push(current_math_code.trim().to_string());
+        } else if in_math_code {
+            current_math_code.push_str(line);
+            current_math_code.push('\n');
+        }
+    }
+    if in_math_code {
+        errors.push("Unclosed ```math code block.".to_string());
+    }
+
+    for (idx, math) in math_blocks.iter().enumerate() {
+        if math.is_empty() {
+            errors.push(format!("Display math block {} is empty.", idx + 1));
+            continue;
+        }
+        // Check for raw \n or \r used as LaTeX control sequences
+        if math.contains("\\n ") || math.contains("\\n\\") || math.ends_with("\\n")
+            || math.contains("\\r ") || math.contains("\\r\\") || math.ends_with("\\r")
+        {
+            errors.push(format!(
+                "Display math block {} contains raw \\n or \\r LaTeX control sequence.",
+                idx + 1
+            ));
+        }
+
+        // Check for balanced curly braces in math block
+        let mut depth: i32 = 0;
+        let mut prev_char = ' ';
+        for ch in math.chars() {
+            if prev_char != '\\' {
+                if ch == '{' {
+                    depth += 1;
+                } else if ch == '}' {
+                    depth -= 1;
                 }
             }
-            if depth != 0 {
-                errors.push(format!(
-                    "Display math block {} has unbalanced curly braces.",
-                    (idx + 1) / 2
-                ));
+            prev_char = ch;
+            if depth < 0 {
+                break;
             }
+        }
+        if depth != 0 {
+            errors.push(format!(
+                "Display math block {} has unbalanced curly braces.",
+                idx + 1
+            ));
         }
     }
 
